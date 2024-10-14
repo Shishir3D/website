@@ -54,8 +54,8 @@ const App = () => {
                     backgroundColor: '#1C1C1C',
                     transition: 'background-color 0.3s',
                   }}
-                  onMouseEnter={e => e.target.style.backgroundColor = '#404040'}
-                  onMouseLeave={e => e.target.style.backgroundColor = '#1C1C1C'}
+                  onMouseEnter={e => (e.target as HTMLElement).style.backgroundColor = '#404040'}
+                  onMouseLeave={e => (e.target as HTMLElement).style.backgroundColor = '#1C1C1C'}
                 >
                   <span className="mr-2">{project.icon}</span>
                   {project.name}
