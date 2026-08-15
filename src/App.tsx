@@ -1,180 +1,154 @@
-import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import {
+  ArrowUpRight, BrainCircuit, BriefcaseBusiness, Cloud, Code2, Cpu,
+  Mail, Menu, Moon, Radio, Smartphone, Sparkles, Sun, X,
+} from 'lucide-react';
 import Pfp from './assets/pfp.jpeg';
-import Image1 from './assets/image 2.svg'; 
-import Image2 from './assets/image 3.svg';
-import Image3 from './assets/image 4.svg';
-import Image4 from './assets/image 5.svg';
+import './App.css';
 
-// Define the type for the rectangle properties
-interface Rectangle {
-  id: number;
-  size: number; // Use size instead of width and height to make squares
-  top: number;
-  left: number;
-  speedX: number; // Speed in horizontal direction
-  speedY: number; // Speed in vertical direction
+type Theme = 'light' | 'dark';
+
+const featuredProjects = [
+  {
+    title: 'Real-time Voice AI Systems',
+    description: 'Production voice agents that listen, reason and respond in real time, combining LiveKit, WebRTC, speech recognition, synthesis and retrieval-augmented generation.',
+    tags: ['LiveKit', 'WebRTC', 'RAG', 'FastAPI', 'Docker'], icon: Radio, accent: 'coral',
+  },
+  {
+    title: 'Mobile Apps with Supabase',
+    description: 'Responsive cross-platform mobile experiences backed by Supabase authentication, databases, storage and real-time updates, designed for dependable use on phones.',
+    tags: ['Flutter', 'Supabase', 'PostgreSQL', 'Realtime'], icon: Smartphone, accent: 'blue',
+  },
+  {
+    title: 'AI Transaction Categorization',
+    description: 'A multi-tenant financial workflow that ingests spreadsheets, normalizes transactions and combines deterministic rules with LLM-assisted categorization and review.',
+    tags: ['React', 'FastAPI', 'PostgreSQL', 'LLMs', 'RBAC'], icon: BrainCircuit, accent: 'green',
+  },
+  {
+    title: 'Nepali Voice Cloner',
+    description: 'A speech project exploring natural Nepali voice synthesis and cloning, bringing local-language support to modern conversational AI experiences.',
+    tags: ['Speech AI', 'Nepali', 'TTS', 'Python'], icon: Sparkles, accent: 'purple',
+  },
+];
+
+const publicProjects = [
+  { title: 'Smart Plant Monitoring System', description: 'ESP32-powered plant care with soil, temperature and humidity sensing, automatic watering and Blynk remote control.', meta: '21 GitHub stars · C++ · IoT', href: 'https://github.com/Shishir3D/PlantMonitoringSystem' },
+  { title: 'Weather App', description: 'A Flutter weather app with forecasts, location-aware data and a clear mobile-first interface.', meta: 'Flutter · Dart · Weather API', href: 'https://github.com/Shishir3D/WeatherApp' },
+  { title: 'Chabi Varnan', description: 'An AI application that describes the contents of an image in Nepali.', meta: 'Python · Vision AI · Nepali', href: 'https://github.com/Shishir3D/chabi_varnan' },
+  { title: 'PyQuest', description: 'An educational Unity game created for Hackademia 2.0, using Gemini to generate interactive questions.', meta: 'Unity · C# · Gemini', href: 'https://github.com/Shishir3D/pyquest' },
+  { title: 'Garbage Classification', description: 'A practical computer-vision experiment for classifying waste into useful categories.', meta: 'Machine Learning · Computer Vision', href: 'https://github.com/Shishir3D/garbage-classification' },
+  { title: 'CPR Feedback Device', description: 'A sensor-based training device that gives real-time feedback to help improve CPR technique.', meta: 'Arduino · Sensors · C++', href: 'https://github.com/Shishir3D/CPR-Feedback' },
+];
+
+const stackGroups = [
+  { title: 'AI & realtime', icon: BrainCircuit, items: ['LiveKit', 'WebRTC', 'RAG', 'LLMs', 'STT / TTS', 'Speech AI'] },
+  { title: 'Product engineering', icon: Code2, items: ['React', 'TypeScript', 'Flutter', 'FastAPI', 'Supabase', 'PostgreSQL'] },
+  { title: 'Infrastructure', icon: Cloud, items: ['Docker', 'Linux', 'HAProxy', 'AWS', 'GPU inference', 'CI/CD'] },
+];
+
+function getInitialTheme(): Theme {
+  const saved = window.localStorage.getItem('theme');
+  if (saved === 'light' || saved === 'dark') return saved;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-const App: React.FC = () => {
-  const [rectangles, setRectangles] = useState<Rectangle[]>([]);
+function App() {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Function to generate random position and size for rectangles (squares)
-  const createRectangles = () => {
-    const rects: Rectangle[] = [];
-    for (let i = 0; i < 30; i++) {
-      const size = Math.random() * 30 + 10; // Random square size
-      rects.push({
-        id: i,
-        size: size,
-        top: Math.random() * 90 + 5,
-        left: Math.random() * 90 + 5,
-        speedX: Math.random() * 0.1 - 0.05, // Slower drift horizontally
-        speedY: Math.random() * 0.1 - 0.05, // Slower drift vertically
-      });
-    }
-    setRectangles(rects);
-  };
-
-  // Move the rectangles smoothly
   useEffect(() => {
-    createRectangles();
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    window.localStorage.setItem('theme', theme);
+  }, [theme]);
 
-    const intervalId = setInterval(() => {
-      setRectangles((rects) =>
-        rects.map((rect) => {
-          let newTop = rect.top + rect.speedY;
-          let newLeft = rect.left + rect.speedX;
-
-          // Keep squares within bounds (between 0% and 100%)
-          if (newTop < 0 || newTop > 95) {
-            rect.speedY *= -1; // Reverse direction if out of bounds
-            newTop = rect.top + rect.speedY;
-          }
-          if (newLeft < 0 || newLeft > 95) {
-            rect.speedX *= -1; // Reverse direction if out of bounds
-            newLeft = rect.left + rect.speedX;
-          }
-
-          return {
-            ...rect,
-            top: newTop,
-            left: newLeft,
-          };
-        })
-      );
-    }, 100); // Smooth movement
-
-    return () => clearInterval(intervalId); // Cleanup on unmount
-  }, []);
-
-  const projects = [
-    {
-      name: "Built a smart plant Irrigation System using ESP32",
-      icon: Image1,
-      link: "https://github.com/Shishir3D/RoboticsCW"
-    },
-    {
-      name: "Made a weather app in flutter",
-      icon: Image2,
-      link: "https://github.com/Shishir3D/WeatherApp"
-    },
-    {
-      name: "Created a game in unity for a hackathon",
-      icon: Image3,
-      link: "https://www.spaceappschallenge.org/2023/find-a-team/gravity-geeks/?tab=details"
-    },
-    {
-      name: "Consistent in solving DSA problems",
-      icon: Image4,
-      link: "https://github.com/Shishir3D/leetcode"
-    }
-  ];
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="relative flex justify-center items-center min-h-screen text-white p-4"
-      style={{ backgroundColor: '#101010' }}>
+    <div className="site-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label="Shishir Paudel — home">
+          <span className="brand-mark" aria-hidden="true">SP</span><span>Shishir Paudel</span>
+        </a>
+        <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Main navigation">
+          <a href="#work" onClick={closeMenu}>Work</a><a href="#about" onClick={closeMenu}>About</a>
+          <a href="#stack" onClick={closeMenu}>Stack</a><a href="#contact" onClick={closeMenu}>Contact</a>
+        </nav>
+        <div className="header-actions">
+          <button className="icon-button" type="button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
+            {theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}
+          </button>
+          <button className="icon-button menu-button" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </header>
 
-      {/* Floating Squares (behind content) */}
-      {rectangles.map((rect) => (
-        <div
-          key={rect.id}
-          className="absolute bg-gray-500 opacity-50"
-          style={{
-            width: `${rect.size}px`,
-            height: `${rect.size}px`, // Make height equal to width for squares
-            top: `${rect.top}%`,
-            left: `${rect.left}%`,
-            zIndex: 0,  // Ensure squares are behind
-            borderRadius: '10px', // Rounded corners
-            transition: 'top 0.5s linear, left 0.5s linear', // Smooth movement
-          }}
-        />
-      ))}
-
-      {/* Main Content Div (with zIndex 1) */}
-      <div
-        className="relative z-10 max-w-[500px] w-full h-[95vh] rounded-lg shadow-lg flex flex-col justify-between p-6"
-		style={{
-			backgroundColor: '#212121',
-			boxShadow: '0 0 5px #FFFFFF', // White shadow with 40px all around
-	  }}>
-	  <header className="flex justify-between items-center mb-6 pt-[50px]">
-          <div>
-            <h1 className="text-4xl font-bold">Shishir Poudel</h1>
-            <p className="text-gray-400">A frog trying to escape the well. 🐸</p>
+      <main id="main-content">
+        <section className="hero" id="top">
+          <div className="hero-copy">
+            <div className="eyebrow"><span className="status-dot" /> Building production AI in Nepal</div>
+            <h1>I make AI systems that feel <em>fast, useful</em> and human.</h1>
+            <p className="hero-lede">I’m Shishir Paudel, an AI systems builder focused on real-time voice agents, mobile applications and the infrastructure that keeps them reliable.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#work">See selected work <ArrowUpRight size={18} /></a>
+              <a className="button button-secondary" href="https://linkedin.com/in/shishir3d" target="_blank" rel="noreferrer"><Mail size={18} /> Get in touch</a>
+            </div>
+            <div className="hero-proof" aria-label="Areas of focus"><span>Voice AI</span><span>WebRTC</span><span>Mobile</span><span>AI infrastructure</span></div>
           </div>
-          <img src={Pfp} alt="Shishir Poudel" className="w-40 h-40 rounded-full" />
-        </header>
-
-        <section className="mb-6 flex-grow mt-6">
-          <h2 className="text-3xl font-semibold mb-3">Projects</h2>
-          <p className="text-gray-400 mb-3">A list of stuff that I made</p>
-          <ul className="space-y-2">
-            {projects.map((project, index) => (
-              <li key={index}>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded p-3 transition duration-300"
-                  style={{
-                    backgroundColor: '#1C1C1C',
-                    transition: 'background-color 0.3s',
-                  }}
-                  onMouseEnter={e => (e.target as HTMLElement).style.backgroundColor = '#404040'}
-                  onMouseLeave={e => (e.target as HTMLElement).style.backgroundColor = '#1C1C1C'}
-                >
-                  <img
-                    src={project.icon}
-                    alt={project.name}
-                    className="inline-block mr-2 w-6 h-6"
-                  />
-                  {project.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <aside className="profile-card" aria-label="Profile summary">
+            <div className="profile-photo-wrap">
+              <img src={Pfp} alt="Shishir Paudel" className="profile-photo" />
+              <span className="profile-badge"><Cpu size={18} /> AI systems</span>
+            </div>
+            <div className="profile-copy"><p className="profile-kicker">Currently</p><h2>Building real-time AI systems at NextAI</h2><p>From voice-to-voice RAG agents to scalable speech infrastructure.</p></div>
+          </aside>
         </section>
 
-        <footer className="flex justify-center space-x-4 mt-6 pt-4 border-t border-gray-700">
-          <a href="https://x.com/shishir3d" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
-            <Twitter size={24} />
-          </a>
-          <a href="https://linkedin.com/in/shishir3d" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
-            <Linkedin size={24} />
-          </a>
-          <a href="https://github.com/shishir3d" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-            <Github size={24} />
-          </a>
-        </footer>
+        <section className="section" id="work">
+          <div className="section-heading"><div><p className="section-label">Selected work</p><h2>AI products built end to end</h2></div><p>I work across interfaces, models, realtime communication, APIs and deployment.</p></div>
+          <div className="featured-grid">
+            {featuredProjects.map((project) => {
+              const Icon = project.icon;
+              return <article className={`featured-card accent-${project.accent}`} key={project.title}>
+                <div className="project-icon"><Icon size={25} /></div><h3>{project.title}</h3><p>{project.description}</p>
+                <ul className="tag-list" aria-label={`${project.title} technologies`}>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+              </article>;
+            })}
+          </div>
+          <div className="project-list-heading"><h3>Open-source & experiments</h3><a href="https://github.com/Shishir3D?tab=repositories" target="_blank" rel="noreferrer">All GitHub projects <ArrowUpRight size={16} /></a></div>
+          <div className="project-list">
+            {publicProjects.map((project) => <a className="project-row" href={project.href} target="_blank" rel="noreferrer" key={project.title}>
+              <div><h4>{project.title}</h4><p>{project.description}</p><span>{project.meta}</span></div><ArrowUpRight size={20} aria-hidden="true" />
+            </a>)}
+          </div>
+        </section>
 
-        <p className="text-center text-gray-500 text-sm mt-4">
-          © 2024 Shishir Poudel. All rights reserved
-        </p>
-      </div>
+        <section className="section about-section" id="about">
+          <div className="about-intro"><p className="section-label">About</p><h2>Curious since the first line of code.</h2></div>
+          <div className="about-copy">
+            <p className="about-lead">I started programming around age 12, moved from making games into artificial intelligence, and never lost the urge to turn ideas into working products.</p>
+            <p>I completed my bachelor’s studies in AI at Islington College and work at NextAI, where I focus on WebRTC, voice agents and production-level realtime systems. My work sits where product thinking meets systems engineering: a useful interface on the front, resilient infrastructure underneath, and AI that earns its place.</p>
+            <p>Outside work, I build open-source experiments, join hackathons and explore how speech and language technology can serve Nepali users better.</p>
+            <div className="social-links"><a href="https://github.com/Shishir3D" target="_blank" rel="noreferrer"><Code2 size={19} /> GitHub</a><a href="https://linkedin.com/in/shishir3d" target="_blank" rel="noreferrer"><BriefcaseBusiness size={19} /> LinkedIn</a></div>
+          </div>
+        </section>
+
+        <section className="section" id="stack">
+          <div className="section-heading"><div><p className="section-label">Technical toolkit</p><h2>From prototype to production</h2></div><p>Tools change. The goal stays the same: ship dependable systems that solve real problems.</p></div>
+          <div className="stack-grid">{stackGroups.map((group) => { const Icon = group.icon; return <article className="stack-card" key={group.title}><Icon size={22} /><h3>{group.title}</h3><div className="stack-items">{group.items.map((item) => <span key={item}>{item}</span>)}</div></article>; })}</div>
+        </section>
+
+        <section className="contact-section" id="contact">
+          <div><p className="section-label">Let’s build something useful</p><h2>Have an AI, voice or mobile product in mind?</h2></div>
+          <a className="button button-primary" href="https://linkedin.com/in/shishir3d" target="_blank" rel="noreferrer">Start a conversation <ArrowUpRight size={18} /></a>
+        </section>
+      </main>
+
+      <footer className="site-footer"><div><span className="brand-mark small" aria-hidden="true">SP</span><p>Shishir Paudel · AI systems builder in Nepal</p></div><p>© {new Date().getFullYear()} Built with curiosity.</p></footer>
     </div>
   );
-};
+}
 
 export default App;

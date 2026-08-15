@@ -1,10 +1,12 @@
-To run the site locally :
-```
+# Shishir Paudel — Portfolio
+
+Personal portfolio for [Shishir Paudel](https://www.shishir-poudel.com.np), an AI systems builder working across real-time voice AI, WebRTC, mobile applications and production infrastructure.
+
+## Development
+
+```bash
+npm install
 npm run dev
 ```
 
-To build the site and deploy it on github:
-```
-npm run build
-npm run deploy
-```
+Run `npm run build` for a production build and `npm run lint` for static checks.
