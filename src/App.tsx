@@ -68,8 +68,8 @@ function App() {
     <div className="site-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Shishir Paudel — home">
-          <span className="brand-mark" aria-hidden="true">SP</span><span>Shishir Paudel</span>
+        <a className="brand" href="#top" aria-label="Shishir Poudel — home">
+          <span className="brand-mark" aria-hidden="true">SP</span><span>Shishir Poudel</span>
         </a>
         <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Main navigation">
           <a href="#work" onClick={closeMenu}>Work</a><a href="#about" onClick={closeMenu}>About</a>
@@ -90,7 +90,7 @@ function App() {
           <div className="hero-copy">
             <div className="eyebrow"><span className="status-dot" /> Building production AI in Nepal</div>
             <h1>I make AI systems that feel <em>fast, useful</em> and human.</h1>
-            <p className="hero-lede">I’m Shishir Paudel, an AI systems builder focused on real-time voice agents, mobile applications and the infrastructure that keeps them reliable.</p>
+            <p className="hero-lede">I’m Shishir Poudel, an AI systems builder focused on real-time voice agents, mobile applications and the infrastructure that keeps them reliable.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">See selected work <ArrowUpRight size={18} /></a>
               <a className="button button-secondary" href="https://linkedin.com/in/shishir3d" target="_blank" rel="noreferrer"><Mail size={18} /> Get in touch</a>
@@ -99,7 +99,7 @@ function App() {
           </div>
           <aside className="profile-card" aria-label="Profile summary">
             <div className="profile-photo-wrap">
-              <img src={Pfp} alt="Shishir Paudel" className="profile-photo" />
+              <img src={Pfp} alt="Shishir Poudel" className="profile-photo" />
               <span className="profile-badge"><Cpu size={18} /> AI systems</span>
             </div>
             <div className="profile-copy"><p className="profile-kicker">Currently</p><h2>Building real-time AI systems at NextAI</h2><p>From voice-to-voice RAG agents to scalable speech infrastructure.</p></div>
@@ -146,7 +146,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><div><span className="brand-mark small" aria-hidden="true">SP</span><p>Shishir Paudel · AI systems builder in Nepal</p></div><p>© {new Date().getFullYear()} Built with curiosity.</p></footer>
+      <footer className="site-footer"><div><span className="brand-mark small" aria-hidden="true">SP</span><p>Shishir Poudel · AI systems builder in Nepal</p></div><p>© {new Date().getFullYear()} Built with curiosity.</p></footer>
     </div>
   );
 }
