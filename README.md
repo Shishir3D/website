@@ -1,6 +1,6 @@
-# Shishir Paudel — Portfolio
+# Shishir Poudel — Portfolio
 
-Personal portfolio for [Shishir Paudel](https://www.shishir-poudel.com.np), an AI systems builder working across real-time voice AI, WebRTC, mobile applications and production infrastructure.
+Personal portfolio for [Shishir Poudel](https://www.shishir-poudel.com.np), an AI systems builder working across real-time voice AI, WebRTC, mobile applications and production infrastructure.
 
 ## Development
 
