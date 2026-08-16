@@ -39,10 +39,11 @@ jobs:
 
       - name: Publish compiled files for legacy Pages
         run: |
+          rm -rf assets story
           cp -R dist/. .
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html assets favicon.svg profile.jpeg robots.txt sitemap.xml vite.svg
+          git add index.html assets story favicon.svg profile.jpeg robots.txt sitemap.xml vite.svg
           if git diff --cached --quiet; then
             exit 0
           fi
