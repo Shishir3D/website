@@ -1,234 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import {
-  ArrowDown,
-  ArrowUpRight,
-  AudioLines,
-  CircleDot,
-  Code2,
-  Leaf,
-  Menu,
-  Smartphone,
-  Sparkles,
-  X,
-} from 'lucide-react';
-import './App.css';
-
-const StoryCanvas = lazy(() => import('./StoryCanvas'));
-
-type Project = {
-  number: string;
-  label: string;
-  title: string;
-  copy: string;
-  image: string;
-  tags: string[];
-  icon: typeof AudioLines;
-  accent: string;
-};
-
-const projects: Project[] = [
-  {
-    number: '01',
-    label: 'REALTIME VOICE AI',
-    title: 'Make machines feel present.',
-    copy: 'I build the whole conversational path: LiveKit and WebRTC, speech recognition, reasoning, retrieval, synthesis, and the infrastructure that keeps a reply immediate.',
-    image: '/story/voice.webp',
-    tags: ['LiveKit', 'WebRTC', 'RAG', 'FastAPI'],
-    icon: AudioLines,
-    accent: '#ee9c55',
-  },
-  {
-    number: '02',
-    label: 'MOBILE + DATA',
-    title: 'Make the useful thing stay useful.',
-    copy: 'Phone-first products with authentication, realtime data, and records that still make sense when the connection is not perfect.',
-    image: '/story/mobile.webp',
-    tags: ['Flutter', 'Supabase', 'PostgreSQL'],
-    icon: Smartphone,
-    accent: '#5eabc5',
-  },
-  {
-    number: '03',
-    label: 'AI WORKFLOWS',
-    title: 'Make complexity readable.',
-    copy: 'Rules handle the obvious bank rows, AI helps with ambiguity, and people retain the final review. Good automation should make judgment clearer, not hide it.',
-    image: '/story/transactions.webp',
-    tags: ['React', 'FastAPI', 'LLMs', 'RBAC'],
-    icon: CircleDot,
-    accent: '#9a7a51',
-  },
-  {
-    number: '04',
-    label: 'NEPALI VOICE + ACCESS',
-    title: 'Make technology sound closer to home.',
-    copy: 'I explore speech, phonetics, and image understanding for Nepali-speaking people‚Äîquietly useful work that begins by listening carefully.',
-    image: '/story/nepali-voice.webp',
-    tags: ['Speech AI', 'Nepali', 'Python'],
-    icon: Sparkles,
-    accent: '#c66d68',
-  },
-  {
-    number: '05',
-    label: 'PHYSICAL SYSTEMS',
-    title: 'Make ideas touch the world.',
-    copy: 'Sensors, feedback loops, weather, plants, learning games, and prototypes. I like the moment software leaves the screen and becomes a small working thing.',
-    image: '/story/plant.webp',
-    tags: ['ESP32', 'Sensors', 'C++', 'Computer Vision'],
-    icon: Leaf,
-    accent: '#6f9b55',
-  },
-];
-
-const sideProjects = [
-  ['Weather app', 'A quick, calm read of the day.'],
-  ['PyQuest', 'Python questions turned into a world to move through.'],
-  ['Garbage classification', 'A practical computer-vision sorting loop.'],
-  ['CPR feedback device', 'Pressure and rhythm made visible for practice.'],
-  ['Chabi Varnan', 'Image understanding in familiar Nepali.'],
-];
-
-function Mark() {
-  return (
-    <svg className="mark" viewBox="0 0 52 52" aria-hidden="true">
-      <circle cx="26" cy="26" r="21" />
-      <path d="M13 29c3-9 8-14 13-14s10 5 13 14c-4 4-8 6-13 6s-9-2-13-6Z" />
-      <circle cx="26" cy="27" r="4" />
-      <path d="M26 5v7" />
-    </svg>
-  );
-}
-
-function clamp(value: number, min: number, max: number) {
-  return Math.min(max, Math.max(min, value));
-}
-
-export default function App() {
-  const journeyRef = useRef<HTMLElement>(null);
-  const [journeyProgress, setJourneyProgress] = useState(0);
-  const [activeChapter, setActiveChapter] = useState(0);
-  const [sceneOpacity, setSceneOpacity] = useState(1);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReducedMotion(media.matches);
-    update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
-  }, []);
-
-  useEffect(() => {
-    let frame = 0;
-    const updateScrollState = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const journey = journeyRef.current;
-        const contact = document.getElementById('contact');
-        if (!journey) return;
-        const journeyBounds = journey.getBoundingClientRect();
-        const journeyRange = Math.max(1, journeyBounds.height - window.innerHeight);
-        const progress = clamp((window.innerHeight * 0.18 - journeyBounds.top) / journeyRange, 0, 1);
-        setJourneyProgress(progress);
-        setActiveChapter(Math.min(projects.length - 1, Math.round(progress * (projects.length - 1))));
-
-        const contactTop = contact?.getBoundingClientRect().top ?? window.innerHeight * 2;
-        setSceneOpacity(clamp(contactTop / (window.innerHeight * 0.75), 0, 1));
-      });
-    };
-    updateScrollState();
-    window.addEventListener('scroll', updateScrollState, { passive: true });
-    window.addEventListener('resize', updateScrollState);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', updateScrollState);
-      window.removeEventListener('resize', updateScrollState);
-    };
-  }, []);
-
-  const closeMenu = () => setMenuOpen(false);
-
-  return (
-    <div className="site">
-      <header className="site-header">
-        <a className="brand" href="#top" onClick={closeMenu} aria-label="Shishir Poudel home">
-          <Mark />
-          <span>SHISHIR<br />POUDEL</span>
-        </a>
-        <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Primary navigation">
-          <a href="#work" onClick={closeMenu}>Work</a>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
-        </nav>
-        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
-          {menuOpen ? <X /> : <Menu />}
-        </button>
-      </header>
-
-      <div className="scene-layer" style={{ opacity: sceneOpacity }} aria-hidden="true">
-        <Suspense fallback={<div className="scene-fallback" />}>
-          <StoryCanvas progress={journeyProgress} chapter={activeChapter} reducedMotion={reducedMotion} />
-        </Suspense>
-      </div>
-
-      <div className="chapter-rail" aria-label="Story chapters">
-        <span className="rail-label">SCROLL STORY</span>
-        <div className="rail-line"><span style={{ height: `${(activeChapter + 1) / projects.length * 100}%` }} /></div>
-        {projects.map((project, index) => (
-          <button
-            className={activeChapter === index ? 'rail-dot active' : 'rail-dot'}
-            key={project.number}
-            type="button"
-            aria-label={`Go to chapter ${index + 1}`}
-            onClick={() => document.getElementById(`chapter-${index}`)?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' })}
-          />
-        ))}
-      </div>
-
-      <main id="top">
-        <section className="opening" aria-labelledby="opening-title">
-          <div className="opening-wash" />
-          <div className="opening-copy">
-            <p className="eyebrow"><span className="eyebrow-dot" /> AI DEVELOPER ¬∑ SYSTEMS BUILDER ¬∑ NEPAL</p>
-            <h1 id="opening-title">I‚Äôm an AI developer building systems that <em>feel human.</em></h1>
-            <p className="lede">I make realtime voice experiences, mobile products, and the infrastructure underneath them‚Äîone curious climb at a time.</p>
-            <div className="opening-actions">
-              <a className="button button-primary" href="#work">Walk through the work <ArrowDown /></a>
-              <a className="text-link" href="mailto:shishirpoudel7@gmail.com">Say hello <ArrowUpRight /></a>
-            </div>
-          </div>
-          <div className="opening-note"><span>01</span><p>The well is a starting point.<br />The view keeps getting wider.</p></div>
-          <div className="scroll-cue"><span>scroll to travel</span><ArrowDown /></div>
-        </section>
-
-        <section className="thesis" aria-labelledby="thesis-title">
-          <div className="thesis-card">
-            <p className="eyebrow">A SMALL WORLD, A BIGGER VIEW</p>
-            <h2 id="thesis-title">Good technology is a little like climbing out of a well.</h2>
-            <p>You begin with one deep problem. You learn its walls, its echoes, its hidden water. Then you look up, connect it to the wider world, and build something that helps another person see further too.</p>
-          </div>
-          <div className="thesis-stamp"><Code2 /><span>curiosity<br />as infrastructure</span></div>
-        </section>
-
-        <section className="journey" id="work" ref={journeyRef} aria-labelledby="work-title">
-          <div className="journey-heading">
-            <p className="eyebrow">THE CLIMB / 05 CHAPTERS</p>
-            <h2 id="work-title">A few things<br /><em>I‚Äôve made real.</em></h2>
-            <p>Scroll slowly. The scene moves with you; each ledge opens onto a different kind of work.</p>
-          </div>
-          <div className="chapter-list">
-            {projects.map((project, index) => {
-              const Icon = project.icon;
-              return (
-                <article className={activeChapter === index ? 'chapter-panel is-active' : 'chapter-panel'} id={`chapter-${index}`} key={project.number} style={{ '--chapter-accent': project.accent } as React.CSSProperties}>
-                  <div className="chapter-image-wrap">
-                    <img src={project.image} alt={`${project.label.toLowerCase()} illustrated scene`} width="1448" height="1086" loading={index === 0 ? 'eager' : 'lazy'} />
-                    <span className="chapter-number">{project.number}</span>
-                  </div>
-                  <div className="chapter-copy">
-                    <div className="chapter-meta"><Icon /><span>{project.label}</span></div>
-                    <h3>{project.title}</h3>
-                    <p>{project.copy}</p>
+Y™Áäx-ÆÈ‹j◊ù¢Îi∫⁄+äßj[hëÈ‹¢ÈÌ„Ω<NãZñã≠¶Îeäw¨’•µ¡Ω…–ÅÏÅ’Õïôôïç–∞Å’ÕïIïò∞Å’ÕïM—Ö—îÅÙÅô…Ω¥Äù…ïÖç–úÏ)•µ¡Ω…–ÅÏ(ÄÅ……Ω›Ω›∏∞(ÄÅ……Ω›U¡I•ù°–∞(ÄÅ’ë•Ω1•πïÃ∞(ÄÅ•…ç±ïΩ–∞(ÄÅΩëî»∞(ÄÅ1ïÖò∞(ÄÅ5ïπ‘∞(ÄÅMµÖ…—¡°Ωπî∞(ÄÅM¡Ö…≠±ïÃ∞(ÄÅ`∞)ÙÅô…Ω¥Äù±’ç•ëîµ…ïÖç–úÏ)•µ¡Ω…–Äú∏Ω¡¿πçÕÃúÏ()—Â¡îÅA…Ω©ïç–ÄÙÅÏ(ÄÅπ’µâï»ËÅÕ—…•πúÏ(ÄÅ±Öâï∞ËÅÕ—…•πúÏ(ÄÅ—•—±îËÅÕ—…•πúÏ(ÄÅçΩ¡‰ËÅÕ—…•πúÏ(ÄÅ•µÖùîËÅÕ—…•πúÏ(ÄÅ•µÖùï±–ËÅÕ—…•πúÏ(ÄÅ—ÖùÃËÅÕ—…•πùmtÏ(ÄÅ•çΩ∏ËÅ—Â¡ïΩòÅ’ë•Ω1•πïÃÏ)ÙÏ()—Â¡îÅM—Ω…ÂMçïπîÄÙÅÏ(ÄÅ±Öâï∞ËÅÕ—…•πúÏ(ÄÅ—•—±îËÅÕ—…•πúÏ(ÄÅçΩ¡‰ËÅÕ—…•πúÏ(ÄÅµÖ…≠ï»ËÅÕ—…•πúÏ)ÙÏ()çΩπÕ–ÅÕçïπïÃËÅM—Ω…ÂMçïπïmtÄÙÅl(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿ƒÄºÅ	%8Å1=Mú∞(ÄÄÄÅ—•—±îËÄù$Åâ’•±êÅÕÂÕ—ïµÃÅ—°Ö–Åôïï∞Å°’µÖ∏∏ú∞(ÄÄÄÅçΩ¡‰ËÄù'äe¥ÅÖ∏Å$ÅëïŸï±Ω¡ï»Å›°ºÅ±•≠ïÃÅÕ—Ö…—•πúÅ›•—†Å—°îÅÕµÖ±∞∞Å…ïÖ∞Å¡…Ωâ±ï¥ËÅÑÅŸΩ•çîÅ—°Ö–ÅÕ°Ω’±êÅÖπÕ›ï»Å≈’•ç≠±‰∞ÅÑÅ…ïçΩ…êÅ—°Ö–ÅÕ°Ω’±êÅÕ—Ö‰Å—…’Õ—›Ω…—°‰∞ÅÑÅ¡ï…ÕΩ∏Å›°ºÅÕ°Ω’±êÅπΩ–Å°ÖŸîÅ—ºÅô•ù°–Å—°îÅ•π—ï…ôÖçî∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄù•πÕ•ëîÅ—°îÅ›ï±∞ú∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿»ÄºÅ1%5Å=UPú∞(ÄÄÄÅ—•—±îËÄùQ°ï∏Å$ÅµÖ≠îÅ—°îÅŸ•ï‹Å›•ëï»∏ú∞(ÄÄÄÅçΩ¡‰ËÄùQ°îÅâïÕ–Å›Ω…¨ÅµΩŸïÃÅô…Ω¥Å¡…Ω—Ω—Â¡îÅ—ºÅ¡…Ωë’ç–Å›•—°Ω’–Å±ΩÕ•πúÅ•—ÃÅ›Ö…µ—†∏Å$ÅçΩππïç–Å—°îÅµΩëï∞∞Å—°îÅ•π—ï…ôÖçî∞Å—°îÅëÖ—Ñ∞ÅÖπêÅ—°îÅ•πô…ÖÕ—…’ç—’…îÅÕºÅ—°îÅ›°Ω±îÅ—°•πúÅçÖ∏Å≠ïï¿Å•—ÃÅ¡…Ωµ•Õî∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄùÖ–Å—°îÅ…•¥ú∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿ÃÄºÅ=99PÅQ!ÅA%Lú∞(ÄÄÄÅ—•—±îËÄùUÕïô’∞Å—ïç°πΩ±Ωù‰Å•ÃÅÑÅπï—›Ω…¨ÅΩòÅëï—Ö•±Ã∏ú∞(ÄÄÄÅçΩ¡‰ËÄùIïÖ±—•µîÅÖ’ë•º∞ÅµΩâ•±îÅ›Ω…≠ô±Ω›Ã∞Å…ï—…•ïŸÖ∞∞Å¡ï…µ•ÕÕ•ΩπÃ∞Åëï¡±ΩÂµïπ–∞ÅÖπêÅ—°îÅ—•π‰Åëïç•Õ•ΩπÃÅ•∏Åâï—›ïï∏ÅÖ±∞ÅÕ°Ö¡îÅ—°îÅï·¡ï…•ïπçî∏Å$Åïπ©Ω‰ÅµÖ≠•πúÅ—°ΩÕîÅçΩππïç—•ΩπÃÅëï¡ïπëÖâ±î∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄùÖç…ΩÕÃÅ—°îÅŸÖ±±ï‰ú∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿–ÄºÅ-@Å1==-%9ú∞(ÄÄÄÅ—•—±îËÄù’…•ΩÕ•—‰Å•ÃÅ—°îÅ¡Ö…–Å$Å≠ïï¿∏ú∞(ÄÄÄÅçΩ¡‰ËÄù…Ω¥Å9ï¡Ö∞∞Å$Å›Ω…¨ÅÖç…ΩÕÃÅŸΩ•çîÅ$∞Å¡…Ωë’ç—•Ω∏ÅÕÂÕ—ïµÃ∞ÅÖπêÅ¡±ÖÂô’∞Å¡°ÂÕ•çÖ∞Å¡…Ω—Ω—Â¡ïÃ∏ÅQ°ï…îÅ•ÃÅÖ±›ÖÂÃÅÖπΩ—°ï»Å°Ω…•ÈΩ∏Å›Ω…—†Åâ’•±ë•πúÅ—Ω›Ö…ê∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄù—Ω›Ö…êÅ—°îÅ°Ω…•ÈΩ∏ú∞(ÄÅÙ∞)tÏ()çΩπÕ–Å¡…Ω©ïç—ÃËÅA…Ω©ïç—mtÄÙÅl(ÄÅÏ(ÄÄÄÅπ’µâï»ËÄú¿ƒú∞(ÄÄÄÅ±Öâï∞ËÄùI1Q%5ÅY=%Å$ú∞(ÄÄÄÅ—•—±îËÄù5Ö≠îÅµÖç°•πïÃÅôïï∞Å¡…ïÕïπ–∏ú∞(ÄÄÄÅçΩ¡‰ËÄùΩπŸï…ÕÖ—•ΩπÖ∞ÅÕÂÕ—ïµÃÅô…Ω¥Åµ•ç…Ω¡°ΩπîÅ—ºÅ…ïÕ¡ΩπÕîËÅ1•Ÿï-•–∞Å]ïâIQ∞ÅÕ¡ïïç†Å…ïçΩùπ•—•Ω∏∞Å…ï—…•ïŸÖ∞∞ÅÕÂπ—°ïÕ•Ã∞ÅÖπêÅ—°îÅ•πô…ÖÕ—…’ç—’…îÅ—°Ö–Å≠ïï¡ÃÅÑÅ…ï¡±‰Å•µµïë•Ö—î∏ú∞(ÄÄÄÅ•µÖùîËÄúΩÕ—Ω…‰ΩŸΩ•çîπ›ïâ¿ú∞(ÄÄÄÅ•µÖùï±–ËÄù%±±’Õ—…Ö—ïêÅ…ïÖ±—•µîÅŸΩ•çîÅ$Å¡…Ω©ïç–ÅÕçïπîú∞(ÄÄÄÅ—ÖùÃËÅlù1•Ÿï-•–ú∞Äù]ïâIQú∞ÄùIú∞ÄùÖÕ—A$ùt∞(ÄÄÄÅ•çΩ∏ËÅ’ë•Ω1•πïÃ∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅπ’µâï»ËÄú¿»ú∞(ÄÄÄÅ±Öâï∞ËÄù5=	%1Ä¨ÅQú∞(ÄÄÄÅ—•—±îËÄù5Ö≠îÅ—°îÅ’Õïô’∞Å—°•πúÅÕ—Ö‰Å’Õïô’∞∏ú∞(ÄÄÄÅçΩ¡‰ËÄùA°Ωπîµô•…Õ–Å¡…Ωë’ç—ÃÅ›•—†ÅÖ’—°ïπ—•çÖ—•Ω∏∞Å…ïÖ±—•µîÅëÖ—Ñ∞ÅÖπêÅ…ïçΩ…ëÃÅ—°Ö–ÅÕ—•±∞ÅµÖ≠îÅÕïπÕîÅ›°ï∏Å—°îÅçΩππïç—•Ω∏Å•ÃÅπΩ–Å¡ï…ôïç–∏ú∞(ÄÄÄÅ•µÖùîËÄúΩÕ—Ω…‰ΩµΩâ•±îπ›ïâ¿ú∞(ÄÄÄÅ•µÖùï±–ËÄù%±±’Õ—…Ö—ïêÅµΩâ•±îÅ¡…Ωë’ç–Å¡…Ω©ïç–ÅÕçïπîú∞(ÄÄÄÅ—ÖùÃËÅlù±’——ï»ú∞ÄùM’¡ÖâÖÕîú∞ÄùAΩÕ—ù…ïME0ùt∞(ÄÄÄÅ•çΩ∏ËÅMµÖ…—¡°Ωπî∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅπ’µâï»ËÄú¿Ãú∞(ÄÄÄÅ±Öâï∞ËÄù$Å]=I-1=]Lú∞(ÄÄÄÅ—•—±îËÄù5Ö≠îÅçΩµ¡±ï·•—‰Å…ïÖëÖâ±î∏ú∞(ÄÄÄÅçΩ¡‰ËÄùI’±ïÃÅ°Öπë±îÅ—°îÅΩâŸ•Ω’ÃÅ…Ω›Ã∞Å$Å°ï±¡ÃÅ›•—†ÅÖµâ•ù’•—‰∞ÅÖπêÅ¡ïΩ¡±îÅ…ï—Ö•∏Å—°îÅô•πÖ∞Å…ïŸ•ï‹∏ÅΩΩêÅÖ’—ΩµÖ—•Ω∏ÅµÖ≠ïÃÅ©’ëùµïπ–Åç±ïÖ…ï»∏ú∞(ÄÄÄÅ•µÖùîËÄúΩÕ—Ω…‰Ω—…ÖπÕÖç—•ΩπÃπ›ïâ¿ú∞(ÄÄÄÅ•µÖùï±–ËÄù%±±’Õ—…Ö—ïêÅ$Å›Ω…≠ô±Ω‹Å¡…Ω©ïç–ÅÕçïπîú∞(ÄÄÄÅ—ÖùÃËÅlùIïÖç–ú∞ÄùÖÕ—A$ú∞Äù115Ãú∞ÄùI	nÙÚ⁄$z{-ÆÈ‹j◊ùpy}</p>
                     <ul className="tag-list" aria-label="Technologies used">
                       {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
                     </ul>
@@ -241,7 +11,7 @@ export default function App() {
 
         <section className="side-quests" aria-labelledby="side-quests-title">
           <div>
-            <p className="eyebrow">SMALLER WORLDS</p>
+            <p className="eyebrow"><span className="eyebrow-dot" />SMALLER WORLDS</p>
             <h2 id="side-quests-title">The side quests<br /><em>count too.</em></h2>
           </div>
           <div className="quest-list">
@@ -261,7 +31,7 @@ export default function App() {
             <span>still looking up</span>
           </div>
           <div className="about-copy">
-            <p className="eyebrow">NEAR THE RIM / ABOUT ME</p>
+            <p className="eyebrow"><span className="eyebrow-dot" />NEAR THE RIM / ABOUT ME</p>
             <h2 id="about-title">The systems got bigger.<br /><em>The curiosity stayed.</em></h2>
             <p>I study AI at Islington College and build at NextAI, working across voice agents, WebRTC infrastructure, mobile apps, and production systems. I also lead hackathons and keep exploring technology that serves Nepali language and people better.</p>
             <div className="about-facts">
@@ -274,10 +44,10 @@ export default function App() {
 
         <section className="contact" id="contact" aria-labelledby="contact-title">
           <div className="contact-sky" />
-          <p className="eyebrow">THE NEXT HORIZON</p>
+          <p className="eyebrow"><span className="eyebrow-dot" />THE NEXT HORIZON</p>
           <h2 id="contact-title">Let‚Äôs build something<br /><em>worth looking up to.</em></h2>
           <p>If you are building something useful, strange, ambitious, or hard to explain, I‚Äôd like to hear about it.</p>
-          <a className="button button-primary" href="mailto:shishirpoudel7@gmail.com">shishirpoudel7@gmail.com <ArrowUpRight /></a>
+          <a className="button button-dark" href="mailto:shishirpoudel7@gmail.com">shishirpoudel7@gmail.com <ArrowUpRight /></a>
         </section>
       </main>
 

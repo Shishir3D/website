@@ -2,7 +2,7 @@
 
 Personal portfolio for [Shishir Poudel](https://www.shishir-poudel.com.np), an AI developer working across realtime voice AI, WebRTC, mobile applications and production infrastructure.
 
-The site is built as one bright, scroll-driven story: a friendly frog climbs from a mossy well toward a wider view, while a restrained Three.js scene and generated anime-influenced illustrations move with the chapters.
+The site is built as one bright, scroll-driven story: a friendly frog climbs from a mossy well toward a wider view, while four connected anime-influenced background scenes crossfade with the chapters.
 
 ## Development
 
