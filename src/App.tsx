@@ -1,39 +1,290 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Moon, Sun } from 'lucide-react';
-import Pfp from './assets/pfp.jpeg';
-import voice from './assets/projects/voice-ai.webp'; import mobile from './assets/projects/mobile.webp';
-import transactions from './assets/projects/transactions.webp'; import nepaliVoice from './assets/projects/nepali-voice.webp';
-import plant from './assets/projects/plant.webp'; import weather from './assets/projects/weather.webp';
-import chabi from './assets/projects/chabi-varnan.webp'; import pyquest from './assets/projects/pyquest.webp';
-import garbage from './assets/projects/garbage.webp'; import cpr from './assets/projects/cpr.webp';
+import {
+  ArrowDown,
+  ArrowUpRight,
+  AudioLines,
+  CircleDot,
+  Code2,
+  Leaf,
+  Menu,
+  Smartphone,
+  Sparkles,
+  X,
+} from 'lucide-react';
 import './App.css';
-const WellCanvas = lazy(() => import('./WellCanvas'));
 
-const projects = [
-  ['Real-time Voice AI Systems','I build the full conversational path: LiveKit and WebRTC, speech recognition, reasoning, retrieval, synthesis, and the infrastructure that keeps the reply immediate.',voice,'LiveKit · WebRTC · RAG · FastAPI'],
-  ['Mobile Apps with Supabase','Phone-first products with authentication, realtime data, and records that remain understandable when connectivity is imperfect.',mobile,'Flutter · Supabase · PostgreSQL'],
-  ['AI Transaction Categorization','A multi-tenant workflow where rules handle obvious bank rows, AI assists with ambiguity, and people retain the final review.',transactions,'React · FastAPI · LLMs · RBAC'],
-  ['Nepali Voice Cloner','An exploration of phonetics, careful data handling, and speech interfaces that sound closer to home.',nepaliVoice,'Speech AI · Nepali · Python'],
-  ['Smart Plant Monitoring','A physical feedback loop using an ESP32, soil sensing, and automatic watering—built as a compact working ecosystem.',plant,'ESP32 · Sensors · C++'],
-  ['Weather App','A focused mobile weather experience for reading the day quickly: location, forecast, and a clear visual rhythm.',weather,'Flutter · Dart · Weather API'],
-  ['Chabi Varnan','A small accessibility direction: observe an image, understand its contents, and describe it in familiar Nepali.',chabi,'Vision AI · Nepali · Python'],
-  ['PyQuest','A Unity learning world where Python questions become gates, bridges, and reasons to keep moving.',pyquest,'Unity · C# · Gemini'],
-  ['Garbage Classification','A practical computer-vision sorter built around real waste categories and a clear classification loop.',garbage,'Computer Vision · ML · Python'],
-  ['CPR Feedback Device','A sensor-based training device that turns pressure and rhythm into immediate practice feedback.',cpr,'Arduino · Sensors · C++'],
-] as const;
+const StoryCanvas = lazy(() => import('./StoryCanvas'));
 
-function Mark(){return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M12 26c3-8 8-12 12-12s9 4 12 12c-4 4-8 6-12 6s-8-2-12-6Z"/><circle cx="24" cy="24" r="4"/></svg>}
+type Project = {
+  number: string;
+  label: string;
+  title: string;
+  copy: string;
+  image: string;
+  tags: string[];
+  icon: typeof AudioLines;
+  accent: string;
+};
 
-export default function App(){
-  const [dark,setDark]=useState(true),[progress,setProgress]=useState(0),[reduced,setReduced]=useState(false); const raf=useRef(0);
-  useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light'},[dark]);
-  useEffect(()=>{const m=matchMedia('(prefers-reduced-motion: reduce)'),s=()=>setReduced(m.matches);s();m.addEventListener('change',s);return()=>m.removeEventListener('change',s)},[]);
-  useEffect(()=>{const s=()=>{cancelAnimationFrame(raf.current);raf.current=requestAnimationFrame(()=>{const m=document.documentElement.scrollHeight-innerHeight;setProgress(m?scrollY/m:0)})};s();addEventListener('scroll',s,{passive:true});addEventListener('resize',s);return()=>{removeEventListener('scroll',s);removeEventListener('resize',s);cancelAnimationFrame(raf.current)}},[]);
-  return <div className="site"><header><a className="brand" href="#top"><Mark/><span>SHISHIR<br/>POUDEL</span></a><nav><a href="#work">Work</a><a href="#path">Path</a><a href="#contact">Contact</a></nav><button className="theme" onClick={()=>setDark(!dark)} aria-label="Toggle theme">{dark?<Sun/>:<Moon/>}</button></header>
-  <main id="top"><section className="hero"><div className="hero-scene"><Suspense fallback={<div className="canvas-fallback"/>}><WellCanvas progress={progress} reducedMotion={reduced}/></Suspense></div><div className="hero-copy"><p className="overline">AI DEVELOPER · SYSTEMS BUILDER · NEPAL</p><h1>I build AI<br/>that <i>speaks, listens,</i><br/>and works in the real world.</h1><p className="intro">I’m Shishir Poudel. I make realtime voice systems, mobile products, and the difficult infrastructure beneath simple experiences.</p><div className="hero-actions"><a href="#work">Enter the work <ArrowDown/></a><a href="mailto:shishirpoudel7@gmail.com">Talk to me <ArrowUpRight/></a></div></div><p className="story-note">The well is where the story begins—not the headline. Scroll upward with the frog as each project opens a wider view.</p></section>
-  <section className="manifesto"><p className="chapter">01 / THE VIEW FROM BELOW</p><h2>Deep focus first.<br/><span>Then look beyond the rim.</span></h2><p>I started coding around twelve. Games taught me to make worlds; AI taught me to make them respond. The frog and well run through this site as a personal map of that curiosity—not as a costume for the work.</p></section>
-  <section id="work" className="work"><div className="section-title"><p className="chapter">02 / DISCOVERIES ON THE CLIMB</p><h2>Selected work,<br/>not a card grid.</h2></div>{projects.map(([title,copy,image,tech],i)=><article className="project" key={title}><figure><img src={image} width="1440" height="960" loading={i<2?'eager':'lazy'} alt={`Original illustrated scene for ${title}`}/><figcaption>{String(i+1).padStart(2,'0')} / 10</figcaption></figure><div className="project-copy"><p className="project-index">LEDGE {String(i+1).padStart(2,'0')}</p><h3>{title}</h3><p>{copy}</p><small>{tech}</small></div></article>)}</section>
-  <section id="path" className="path"><img src={Pfp} alt="Shishir Poudel"/><div><p className="chapter">03 / NEAR THE RIM</p><h2>The systems got bigger.<br/>The curiosity stayed.</h2><p>I study AI at Islington College and build at NextAI, working across voice agents, WebRTC infrastructure, mobile apps, and production systems. I also lead hackathons and keep exploring technology that serves Nepali language and people better.</p><ol><li><b>12</b><span>started programming through games</span></li><li><b>AI</b><span>moved from prototypes into useful systems</span></li><li><b>NOW</b><span>building realtime products at production scale</span></li></ol></div></section>
-  <section id="contact" className="contact"><p className="chapter">04 / OPEN SKY</p><h2>The rim only reveals<br/>a larger world.</h2><p>If you are building something useful, strange, ambitious, or hard to explain—let’s talk.</p><a href="mailto:shishirpoudel7@gmail.com">shishirpoudel7@gmail.com <ArrowUpRight/></a></section></main>
-  <footer><span>© {new Date().getFullYear()} SHISHIR POUDEL</span><div><a href="https://github.com/Shishir3D">GitHub</a><a href="https://linkedin.com/in/shishir3d">LinkedIn</a><a href="mailto:shishirpoudel7@gmail.com">Email</a></div></footer></div>
+const projects: Project[] = [
+  {
+    number: '01',
+    label: 'REALTIME VOICE AI',
+    title: 'Make machines feel present.',
+    copy: 'I build the whole conversational path: LiveKit and WebRTC, speech recognition, reasoning, retrieval, synthesis, and the infrastructure that keeps a reply immediate.',
+    image: '/story/voice.webp',
+    tags: ['LiveKit', 'WebRTC', 'RAG', 'FastAPI'],
+    icon: AudioLines,
+    accent: '#ee9c55',
+  },
+  {
+    number: '02',
+    label: 'MOBILE + DATA',
+    title: 'Make the useful thing stay useful.',
+    copy: 'Phone-first products with authentication, realtime data, and records that still make sense when the connection is not perfect.',
+    image: '/story/mobile.webp',
+    tags: ['Flutter', 'Supabase', 'PostgreSQL'],
+    icon: Smartphone,
+    accent: '#5eabc5',
+  },
+  {
+    number: '03',
+    label: 'AI WORKFLOWS',
+    title: 'Make complexity readable.',
+    copy: 'Rules handle the obvious bank rows, AI helps with ambiguity, and people retain the final review. Good automation should make judgment clearer, not hide it.',
+    image: '/story/transactions.webp',
+    tags: ['React', 'FastAPI', 'LLMs', 'RBAC'],
+    icon: CircleDot,
+    accent: '#9a7a51',
+  },
+  {
+    number: '04',
+    label: 'NEPALI VOICE + ACCESS',
+    title: 'Make technology sound closer to home.',
+    copy: 'I explore speech, phonetics, and image understanding for Nepali-speaking people—quietly useful work that begins by listening carefully.',
+    image: '/story/nepali-voice.webp',
+    tags: ['Speech AI', 'Nepali', 'Python'],
+    icon: Sparkles,
+    accent: '#c66d68',
+  },
+  {
+    number: '05',
+    label: 'PHYSICAL SYSTEMS',
+    title: 'Make ideas touch the world.',
+    copy: 'Sensors, feedback loops, weather, plants, learning games, and prototypes. I like the moment software leaves the screen and becomes a small working thing.',
+    image: '/story/plant.webp',
+    tags: ['ESP32', 'Sensors', 'C++', 'Computer Vision'],
+    icon: Leaf,
+    accent: '#6f9b55',
+  },
+];
+
+const sideProjects = [
+  ['Weather app', 'A quick, calm read of the day.'],
+  ['PyQuest', 'Python questions turned into a world to move through.'],
+  ['Garbage classification', 'A practical computer-vision sorting loop.'],
+  ['CPR feedback device', 'Pressure and rhythm made visible for practice.'],
+  ['Chabi Varnan', 'Image understanding in familiar Nepali.'],
+];
+
+function Mark() {
+  return (
+    <svg className="mark" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="21" />
+      <path d="M13 29c3-9 8-14 13-14s10 5 13 14c-4 4-8 6-13 6s-9-2-13-6Z" />
+      <circle cx="26" cy="27" r="4" />
+      <path d="M26 5v7" />
+    </svg>
+  );
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+export default function App() {
+  const journeyRef = useRef<HTMLElement>(null);
+  const [journeyProgress, setJourneyProgress] = useState(0);
+  const [activeChapter, setActiveChapter] = useState(0);
+  const [sceneOpacity, setSceneOpacity] = useState(1);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    let frame = 0;
+    const updateScrollState = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const journey = journeyRef.current;
+        const contact = document.getElementById('contact');
+        if (!journey) return;
+        const journeyBounds = journey.getBoundingClientRect();
+        const journeyRange = Math.max(1, journeyBounds.height - window.innerHeight);
+        const progress = clamp((window.innerHeight * 0.18 - journeyBounds.top) / journeyRange, 0, 1);
+        setJourneyProgress(progress);
+        setActiveChapter(Math.min(projects.length - 1, Math.round(progress * (projects.length - 1))));
+
+        const contactTop = contact?.getBoundingClientRect().top ?? window.innerHeight * 2;
+        setSceneOpacity(clamp(contactTop / (window.innerHeight * 0.75), 0, 1));
+      });
+    };
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    window.addEventListener('resize', updateScrollState);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <div className="site">
+      <header className="site-header">
+        <a className="brand" href="#top" onClick={closeMenu} aria-label="Shishir Poudel home">
+          <Mark />
+          <span>SHISHIR<br />POUDEL</span>
+        </a>
+        <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Primary navigation">
+          <a href="#work" onClick={closeMenu}>Work</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+        </nav>
+        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+          {menuOpen ? <X /> : <Menu />}
+        </button>
+      </header>
+
+      <div className="scene-layer" style={{ opacity: sceneOpacity }} aria-hidden="true">
+        <Suspense fallback={<div className="scene-fallback" />}>
+          <StoryCanvas progress={journeyProgress} chapter={activeChapter} reducedMotion={reducedMotion} />
+        </Suspense>
+      </div>
+
+      <div className="chapter-rail" aria-label="Story chapters">
+        <span className="rail-label">SCROLL STORY</span>
+        <div className="rail-line"><span style={{ height: `${(activeChapter + 1) / projects.length * 100}%` }} /></div>
+        {projects.map((project, index) => (
+          <button
+            className={activeChapter === index ? 'rail-dot active' : 'rail-dot'}
+            key={project.number}
+            type="button"
+            aria-label={`Go to chapter ${index + 1}`}
+            onClick={() => document.getElementById(`chapter-${index}`)?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' })}
+          />
+        ))}
+      </div>
+
+      <main id="top">
+        <section className="opening" aria-labelledby="opening-title">
+          <div className="opening-wash" />
+          <div className="opening-copy">
+            <p className="eyebrow"><span className="eyebrow-dot" /> AI DEVELOPER · SYSTEMS BUILDER · NEPAL</p>
+            <h1 id="opening-title">I’m an AI developer building systems that <em>feel human.</em></h1>
+            <p className="lede">I make realtime voice experiences, mobile products, and the infrastructure underneath them—one curious climb at a time.</p>
+            <div className="opening-actions">
+              <a className="button button-primary" href="#work">Walk through the work <ArrowDown /></a>
+              <a className="text-link" href="mailto:shishirpoudel7@gmail.com">Say hello <ArrowUpRight /></a>
+            </div>
+          </div>
+          <div className="opening-note"><span>01</span><p>The well is a starting point.<br />The view keeps getting wider.</p></div>
+          <div className="scroll-cue"><span>scroll to travel</span><ArrowDown /></div>
+        </section>
+
+        <section className="thesis" aria-labelledby="thesis-title">
+          <div className="thesis-card">
+            <p className="eyebrow">A SMALL WORLD, A BIGGER VIEW</p>
+            <h2 id="thesis-title">Good technology is a little like climbing out of a well.</h2>
+            <p>You begin with one deep problem. You learn its walls, its echoes, its hidden water. Then you look up, connect it to the wider world, and build something that helps another person see further too.</p>
+          </div>
+          <div className="thesis-stamp"><Code2 /><span>curiosity<br />as infrastructure</span></div>
+        </section>
+
+        <section className="journey" id="work" ref={journeyRef} aria-labelledby="work-title">
+          <div className="journey-heading">
+            <p className="eyebrow">THE CLIMB / 05 CHAPTERS</p>
+            <h2 id="work-title">A few things<br /><em>I’ve made real.</em></h2>
+            <p>Scroll slowly. The scene moves with you; each ledge opens onto a different kind of work.</p>
+          </div>
+          <div className="chapter-list">
+            {projects.map((project, index) => {
+              const Icon = project.icon;
+              return (
+                <article className={activeChapter === index ? 'chapter-panel is-active' : 'chapter-panel'} id={`chapter-${index}`} key={project.number} style={{ '--chapter-accent': project.accent } as React.CSSProperties}>
+                  <div className="chapter-image-wrap">
+                    <img src={project.image} alt={`${project.label.toLowerCase()} illustrated scene`} width="1448" height="1086" loading={index === 0 ? 'eager' : 'lazy'} />
+                    <span className="chapter-number">{project.number}</span>
+                  </div>
+                  <div className="chapter-copy">
+                    <div className="chapter-meta"><Icon /><span>{project.label}</span></div>
+                    <h3>{project.title}</h3>
+                    <p>{project.copy}</p>
+                    <ul className="tag-list" aria-label="Technologies used">
+                      {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="side-quests" aria-labelledby="side-quests-title">
+          <div>
+            <p className="eyebrow">SMALLER WORLDS</p>
+            <h2 id="side-quests-title">The side quests<br /><em>count too.</em></h2>
+          </div>
+          <div className="quest-list">
+            {sideProjects.map(([title, copy], index) => (
+              <div className="quest" key={title}>
+                <span>0{index + 1}</span>
+                <div><h3>{title}</h3><p>{copy}</p></div>
+                <ArrowUpRight />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="about" id="about" aria-labelledby="about-title">
+          <div className="about-portrait">
+            <img src="/profile.jpeg" alt="Shishir Poudel" width="600" height="800" />
+            <span>still looking up</span>
+          </div>
+          <div className="about-copy">
+            <p className="eyebrow">NEAR THE RIM / ABOUT ME</p>
+            <h2 id="about-title">The systems got bigger.<br /><em>The curiosity stayed.</em></h2>
+            <p>I study AI at Islington College and build at NextAI, working across voice agents, WebRTC infrastructure, mobile apps, and production systems. I also lead hackathons and keep exploring technology that serves Nepali language and people better.</p>
+            <div className="about-facts">
+              <div><strong>12</strong><span>started programming<br />through games</span></div>
+              <div><strong>AI</strong><span>from prototypes<br />into useful systems</span></div>
+              <div><strong>NOW</strong><span>building realtime<br />products at scale</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact" id="contact" aria-labelledby="contact-title">
+          <div className="contact-sky" />
+          <p className="eyebrow">THE NEXT HORIZON</p>
+          <h2 id="contact-title">Let’s build something<br /><em>worth looking up to.</em></h2>
+          <p>If you are building something useful, strange, ambitious, or hard to explain, I’d like to hear about it.</p>
+          <a className="button button-primary" href="mailto:shishirpoudel7@gmail.com">shishirpoudel7@gmail.com <ArrowUpRight /></a>
+        </section>
+      </main>
+
+      <footer>
+        <span>© {new Date().getFullYear()} SHISHIR POUDEL</span>
+        <div><a href="https://github.com/Shishir3D"><Code2 /> GitHub</a><a href="https://linkedin.com/in/shishir3d"><Code2 /> LinkedIn</a><a href="mailto:shishirpoudel7@gmail.com">Email</a></div>
+      </footer>
+    </div>
+  );
 }
