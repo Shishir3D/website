@@ -1,4 +1,277 @@
-Y™Áäx-ÆÈ‹j◊ù¢Îi∫⁄+äßj[hëÈ‹¢ÈÌ„Ω<NãZñã≠¶Îeäw¨’•µ¡Ω…–ÅÏÅ’Õïôôïç–∞Å’ÕïIïò∞Å’ÕïM—Ö—îÅÙÅô…Ω¥Äù…ïÖç–úÏ)•µ¡Ω…–ÅÏ(ÄÅ……Ω›Ω›∏∞(ÄÅ……Ω›U¡I•ù°–∞(ÄÅ’ë•Ω1•πïÃ∞(ÄÅ•…ç±ïΩ–∞(ÄÅΩëî»∞(ÄÅ1ïÖò∞(ÄÅ5ïπ‘∞(ÄÅMµÖ…—¡°Ωπî∞(ÄÅM¡Ö…≠±ïÃ∞(ÄÅ`∞)ÙÅô…Ω¥Äù±’ç•ëîµ…ïÖç–úÏ)•µ¡Ω…–Äú∏Ω¡¿πçÕÃúÏ()—Â¡îÅA…Ω©ïç–ÄÙÅÏ(ÄÅπ’µâï»ËÅÕ—…•πúÏ(ÄÅ±Öâï∞ËÅÕ—…•πúÏ(ÄÅ—•—±îËÅÕ—…•πúÏ(ÄÅçΩ¡‰ËÅÕ—…•πúÏ(ÄÅ•µÖùîËÅÕ—…•πúÏ(ÄÅ•µÖùï±–ËÅÕ—…•πúÏ(ÄÅ—ÖùÃËÅÕ—…•πùmtÏ(ÄÅ•çΩ∏ËÅ—Â¡ïΩòÅ’ë•Ω1•πïÃÏ)ÙÏ()—Â¡îÅM—Ω…ÂMçïπîÄÙÅÏ(ÄÅ±Öâï∞ËÅÕ—…•πúÏ(ÄÅ—•—±îËÅÕ—…•πúÏ(ÄÅçΩ¡‰ËÅÕ—…•πúÏ(ÄÅµÖ…≠ï»ËÅÕ—…•πúÏ)ÙÏ()çΩπÕ–ÅÕçïπïÃËÅM—Ω…ÂMçïπïmtÄÙÅl(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿ƒÄºÅ	%8Å1=Mú∞(ÄÄÄÅ—•—±îËÄù$Åâ’•±êÅÕÂÕ—ïµÃÅ—°Ö–Åôïï∞Å°’µÖ∏∏ú∞(ÄÄÄÅçΩ¡‰ËÄù'äe¥ÅÖ∏Å$ÅëïŸï±Ω¡ï»Å›°ºÅ±•≠ïÃÅÕ—Ö…—•πúÅ›•—†Å—°îÅÕµÖ±∞∞Å…ïÖ∞Å¡…Ωâ±ï¥ËÅÑÅŸΩ•çîÅ—°Ö–ÅÕ°Ω’±êÅÖπÕ›ï»Å≈’•ç≠±‰∞ÅÑÅ…ïçΩ…êÅ—°Ö–ÅÕ°Ω’±êÅÕ—Ö‰Å—…’Õ—›Ω…—°‰∞ÅÑÅ¡ï…ÕΩ∏Å›°ºÅÕ°Ω’±êÅπΩ–Å°ÖŸîÅ—ºÅô•ù°–Å—°îÅ•π—ï…ôÖçî∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄù•πÕ•ëîÅ—°îÅ›ï±∞ú∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿»ÄºÅ1%5Å=UPú∞(ÄÄÄÅ—•—±îËÄùQ°ï∏Å$ÅµÖ≠îÅ—°îÅŸ•ï‹Å›•ëï»∏ú∞(ÄÄÄÅçΩ¡‰ËÄùQ°îÅâïÕ–Å›Ω…¨ÅµΩŸïÃÅô…Ω¥Å¡…Ω—Ω—Â¡îÅ—ºÅ¡…Ωë’ç–Å›•—°Ω’–Å±ΩÕ•πúÅ•—ÃÅ›Ö…µ—†∏Å$ÅçΩππïç–Å—°îÅµΩëï∞∞Å—°îÅ•π—ï…ôÖçî∞Å—°îÅëÖ—Ñ∞ÅÖπêÅ—°îÅ•πô…ÖÕ—…’ç—’…îÅÕºÅ—°îÅ›°Ω±îÅ—°•πúÅçÖ∏Å≠ïï¿Å•—ÃÅ¡…Ωµ•Õî∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄùÖ–Å—°îÅ…•¥ú∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿ÃÄºÅ=99PÅQ!ÅA%Lú∞(ÄÄÄÅ—•—±îËÄùUÕïô’∞Å—ïç°πΩ±Ωù‰Å•ÃÅÑÅπï—›Ω…¨ÅΩòÅëï—Ö•±Ã∏ú∞(ÄÄÄÅçΩ¡‰ËÄùIïÖ±—•µîÅÖ’ë•º∞ÅµΩâ•±îÅ›Ω…≠ô±Ω›Ã∞Å…ï—…•ïŸÖ∞∞Å¡ï…µ•ÕÕ•ΩπÃ∞Åëï¡±ΩÂµïπ–∞ÅÖπêÅ—°îÅ—•π‰Åëïç•Õ•ΩπÃÅ•∏Åâï—›ïï∏ÅÖ±∞ÅÕ°Ö¡îÅ—°îÅï·¡ï…•ïπçî∏Å$Åïπ©Ω‰ÅµÖ≠•πúÅ—°ΩÕîÅçΩππïç—•ΩπÃÅëï¡ïπëÖâ±î∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄùÖç…ΩÕÃÅ—°îÅŸÖ±±ï‰ú∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅ±Öâï∞ËÄú¿–ÄºÅ-@Å1==-%9ú∞(ÄÄÄÅ—•—±îËÄù’…•ΩÕ•—‰Å•ÃÅ—°îÅ¡Ö…–Å$Å≠ïï¿∏ú∞(ÄÄÄÅçΩ¡‰ËÄù…Ω¥Å9ï¡Ö∞∞Å$Å›Ω…¨ÅÖç…ΩÕÃÅŸΩ•çîÅ$∞Å¡…Ωë’ç—•Ω∏ÅÕÂÕ—ïµÃ∞ÅÖπêÅ¡±ÖÂô’∞Å¡°ÂÕ•çÖ∞Å¡…Ω—Ω—Â¡ïÃ∏ÅQ°ï…îÅ•ÃÅÖ±›ÖÂÃÅÖπΩ—°ï»Å°Ω…•ÈΩ∏Å›Ω…—†Åâ’•±ë•πúÅ—Ω›Ö…ê∏ú∞(ÄÄÄÅµÖ…≠ï»ËÄù—Ω›Ö…êÅ—°îÅ°Ω…•ÈΩ∏ú∞(ÄÅÙ∞)tÏ()çΩπÕ–Å¡…Ω©ïç—ÃËÅA…Ω©ïç—mtÄÙÅl(ÄÅÏ(ÄÄÄÅπ’µâï»ËÄú¿ƒú∞(ÄÄÄÅ±Öâï∞ËÄùI1Q%5ÅY=%Å$ú∞(ÄÄÄÅ—•—±îËÄù5Ö≠îÅµÖç°•πïÃÅôïï∞Å¡…ïÕïπ–∏ú∞(ÄÄÄÅçΩ¡‰ËÄùΩπŸï…ÕÖ—•ΩπÖ∞ÅÕÂÕ—ïµÃÅô…Ω¥Åµ•ç…Ω¡°ΩπîÅ—ºÅ…ïÕ¡ΩπÕîËÅ1•Ÿï-•–∞Å]ïâIQ∞ÅÕ¡ïïç†Å…ïçΩùπ•—•Ω∏∞Å…ï—…•ïŸÖ∞∞ÅÕÂπ—°ïÕ•Ã∞ÅÖπêÅ—°îÅ•πô…ÖÕ—…’ç—’…îÅ—°Ö–Å≠ïï¡ÃÅÑÅ…ï¡±‰Å•µµïë•Ö—î∏ú∞(ÄÄÄÅ•µÖùîËÄúΩÕ—Ω…‰ΩŸΩ•çîπ›ïâ¿ú∞(ÄÄÄÅ•µÖùï±–ËÄù%±±’Õ—…Ö—ïêÅ…ïÖ±—•µîÅŸΩ•çîÅ$Å¡…Ω©ïç–ÅÕçïπîú∞(ÄÄÄÅ—ÖùÃËÅlù1•Ÿï-•–ú∞Äù]ïâIQú∞ÄùIú∞ÄùÖÕ—A$ùt∞(ÄÄÄÅ•çΩ∏ËÅ’ë•Ω1•πïÃ∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅπ’µâï»ËÄú¿»ú∞(ÄÄÄÅ±Öâï∞ËÄù5=	%1Ä¨ÅQú∞(ÄÄÄÅ—•—±îËÄù5Ö≠îÅ—°îÅ’Õïô’∞Å—°•πúÅÕ—Ö‰Å’Õïô’∞∏ú∞(ÄÄÄÅçΩ¡‰ËÄùA°Ωπîµô•…Õ–Å¡…Ωë’ç—ÃÅ›•—†ÅÖ’—°ïπ—•çÖ—•Ω∏∞Å…ïÖ±—•µîÅëÖ—Ñ∞ÅÖπêÅ…ïçΩ…ëÃÅ—°Ö–ÅÕ—•±∞ÅµÖ≠îÅÕïπÕîÅ›°ï∏Å—°îÅçΩππïç—•Ω∏Å•ÃÅπΩ–Å¡ï…ôïç–∏ú∞(ÄÄÄÅ•µÖùîËÄúΩÕ—Ω…‰ΩµΩâ•±îπ›ïâ¿ú∞(ÄÄÄÅ•µÖùï±–ËÄù%±±’Õ—…Ö—ïêÅµΩâ•±îÅ¡…Ωë’ç–Å¡…Ω©ïç–ÅÕçïπîú∞(ÄÄÄÅ—ÖùÃËÅlù±’——ï»ú∞ÄùM’¡ÖâÖÕîú∞ÄùAΩÕ—ù…ïME0ùt∞(ÄÄÄÅ•çΩ∏ËÅMµÖ…—¡°Ωπî∞(ÄÅÙ∞(ÄÅÏ(ÄÄÄÅπ’µâï»ËÄú¿Ãú∞(ÄÄÄÅ±Öâï∞ËÄù$Å]=I-1=]Lú∞(ÄÄÄÅ—•—±îËÄù5Ö≠îÅçΩµ¡±ï·•—‰Å…ïÖëÖâ±î∏ú∞(ÄÄÄÅçΩ¡‰ËÄùI’±ïÃÅ°Öπë±îÅ—°îÅΩâŸ•Ω’ÃÅ…Ω›Ã∞Å$Å°ï±¡ÃÅ›•—†ÅÖµâ•ù’•—‰∞ÅÖπêÅ¡ïΩ¡±îÅ…ï—Ö•∏Å—°îÅô•πÖ∞Å…ïŸ•ï‹∏ÅΩΩêÅÖ’—ΩµÖ—•Ω∏ÅµÖ≠ïÃÅ©’ëùµïπ–Åç±ïÖ…ï»∏ú∞(ÄÄÄÅ•µÖùîËÄúΩÕ—Ω…‰Ω—…ÖπÕÖç—•ΩπÃπ›ïâ¿ú∞(ÄÄÄÅ•µÖùï±–ËÄù%±±’Õ—…Ö—ïêÅ$Å›Ω…≠ô±Ω‹Å¡…Ω©ïç–ÅÕçïπîú∞(ÄÄÄÅ—ÖùÃËÅlùIïÖç–ú∞ÄùÖÕ—A$ú∞Äù115Ãú∞ÄùI	nÙÚ⁄$z{-ÆÈ‹j◊ùpy}</p>
+import { useEffect, useRef, useState } from 'react';
+import {
+  ArrowDown,
+  ArrowUpRight,
+  AudioLines,
+  CircleDot,
+  Code2,
+  Leaf,
+  Menu,
+  Smartphone,
+  Sparkles,
+  X,
+} from 'lucide-react';
+import './App.css';
+
+type Project = {
+  number: string;
+  label: string;
+  title: string;
+  copy: string;
+  image: string;
+  imageAlt: string;
+  tags: string[];
+  icon: typeof AudioLines;
+};
+
+type StoryScene = {
+  label: string;
+  title: string;
+  copy: string;
+  marker: string;
+};
+
+const scenes: StoryScene[] = [
+  {
+    label: '01 / BEGIN CLOSE',
+    title: 'I build systems that feel human.',
+    copy: 'I‚Äôm an AI developer who likes starting with the small, real problem: a voice that should answer quickly, a record that should stay trustworthy, a person who should not have to fight the interface.',
+    marker: 'inside the well',
+  },
+  {
+    label: '02 / CLIMB OUT',
+    title: 'Then I make the view wider.',
+    copy: 'The best work moves from prototype to product without losing its warmth. I connect the model, the interface, the data, and the infrastructure so the whole thing can keep its promise.',
+    marker: 'at the rim',
+  },
+  {
+    label: '03 / CONNECT THE PIECES',
+    title: 'Useful technology is a network of details.',
+    copy: 'Realtime audio, mobile workflows, retrieval, permissions, deployment, and the tiny decisions in between all shape the experience. I enjoy making those connections dependable.',
+    marker: 'across the valley',
+  },
+  {
+    label: '04 / KEEP LOOKING',
+    title: 'Curiosity is the part I keep.',
+    copy: 'From Nepal, I work across voice AI, production systems, and playful physical prototypes. There is always another horizon worth building toward.',
+    marker: 'toward the horizon',
+  },
+];
+
+const projects: Project[] = [
+  {
+    number: '01',
+    label: 'REALTIME VOICE AI',
+    title: 'Make machines feel present.',
+    copy: 'Conversational systems from microphone to response: LiveKit, WebRTC, speech recognition, retrieval, synthesis, and the infrastructure that keeps a reply immediate.',
+    image: '/story/voice.webp',
+    imageAlt: 'Illustrated realtime voice AI project scene',
+    tags: ['LiveKit', 'WebRTC', 'RAG', 'FastAPI'],
+    icon: AudioLines,
+  },
+  {
+    number: '02',
+    label: 'MOBILE + DATA',
+    title: 'Make the useful thing stay useful.',
+    copy: 'Phone-first products with authentication, realtime data, and records that still make sense when the connection is not perfect.',
+    image: '/story/mobile.webp',
+    imageAlt: 'Illustrated mobile product project scene',
+    tags: ['Flutter', 'Supabase', 'PostgreSQL'],
+    icon: Smartphone,
+  },
+  {
+    number: '03',
+    label: 'AI WORKFLOWS',
+    title: 'Make complexity readable.',
+    copy: 'Rules handle the obvious rows, AI helps with ambiguity, and people retain the final review. Good automation makes judgment clearer.',
+    image: '/story/transactions.webp',
+    imageAlt: 'Illustrated AI workflow project scene',
+    tags: ['React', 'FastAPI', 'LLMs', 'RBAC'],
+    icon: CircleDot,
+  },
+  {
+    number: '04',
+    label: 'NEPALI VOICE + ACCESS',
+    title: 'Make technology sound closer to home.',
+    copy: 'Speech, phonetics, and image understanding for Nepali-speaking people‚Äîquietly useful work that begins by listening carefully.',
+    image: '/story/nepali-voice.webp',
+    imageAlt: 'Illustrated Nepali voice project scene',
+    tags: ['Speech AI', 'Nepali', 'Python'],
+    icon: Sparkles,
+  },
+  {
+    number: '05',
+    label: 'PHYSICAL SYSTEMS',
+    title: 'Make ideas touch the world.',
+    copy: 'Sensors, feedback loops, weather, plants, learning games, and prototypes. I like the moment software becomes a small working thing.',
+    image: '/story/plant.webp',
+    imageAlt: 'Illustrated physical computing project scene',
+    tags: ['ESP32', 'Sensors', 'C++', 'Computer Vision'],
+    icon: Leaf,
+  },
+];
+
+const sideProjects = [
+  ['Weather app', 'A quick, calm read of the day.'],
+  ['PyQuest', 'Python questions turned into a world to move through.'],
+  ['Garbage classification', 'A practical computer-vision sorting loop.'],
+  ['CPR feedback device', 'Pressure and rhythm made visible for practice.'],
+  ['Chabi Varnan', 'Image understanding in familiar Nepali.'],
+];
+
+function Mark() {
+  return (
+    <svg className="mark" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="21" />
+      <path d="M13 29c3-9 8-14 13-14s10 5 13 14c-4 4-8 6-13 6s-9-2-13-6Z" />
+      <circle cx="26" cy="27" r="4" />
+      <path d="M26 5v7" />
+    </svg>
+  );
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+export default function App() {
+  const storyRef = useRef<HTMLElement>(null);
+  const [storyProgress, setStoryProgress] = useState(0);
+  const [activeScene, setActiveScene] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const story = storyRef.current;
+        if (!story) return;
+        const bounds = story.getBoundingClientRect();
+        const range = Math.max(1, bounds.height - window.innerHeight);
+        const progress = clamp((window.innerHeight * 0.08 - bounds.top) / range, 0, 1);
+        setStoryProgress(progress);
+        setActiveScene(Math.min(scenes.length - 1, Math.floor(progress * scenes.length)));
+      });
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
+  const scrollToScene = (index: number) => {
+    const scene = document.getElementById(`scene-${index}`);
+    scene?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    closeMenu();
+  };
+
+  return (
+    <div className="site">
+      <header className="site-header">
+        <a className="brand" href="#top" onClick={closeMenu} aria-label="Shishir Poudel home">
+          <Mark />
+          <span>SHISHIR<br />POUDEL</span>
+        </a>
+        <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Primary navigation">
+          <a href="#story" onClick={closeMenu}>Story</a>
+          <a href="#work" onClick={closeMenu}>Work</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+        </nav>
+        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+          {menuOpen ? <X /> : <Menu />}
+        </button>
+      </header>
+
+      <div className="story-progress" aria-label="Story chapters">
+        <span className="story-progress-label">SCROLL TO DISCOVER</span>
+        <div className="story-progress-line"><span style={{ height: `${(activeScene + 1) / scenes.length * 100}%` }} /></div>
+        {scenes.map((scene, index) => (
+          <button
+            className={activeScene === index ? 'story-dot is-active' : 'story-dot'}
+            key={scene.label}
+            type="button"
+            onClick={() => scrollToScene(index)}
+            aria-label={`Go to story chapter ${index + 1}: ${scene.marker}`}
+          />
+        ))}
+        <span className="story-count">0{activeScene + 1} / 0{scenes.length}</span>
+      </div>
+
+      <main id="top">
+        <section className="story" id="story" ref={storyRef} aria-label="A scrollable introduction to Shishir's work">
+          <div className="scene-viewport" aria-hidden="true">
+            <div className="scene-glow" />
+            {scenes.map((scene, index) => (
+              <div
+                className={activeScene === index ? 'scene-image is-active' : 'scene-image'}
+                key={scene.label}
+                style={{
+                  backgroundImage: `url(/story/scene-${['well', 'rim', 'valley', 'horizon'][index]}.webp)`,
+                  transform: `scale(${1.04 - storyProgress * 0.025}) translate3d(0, ${-storyProgress * 1.6}%, 0)`,
+                }}
+              />
+            ))}
+            <div className="scene-shade" />
+            <div className="scene-caption"><span>SHISHIR / 2026</span><span>{scenes[activeScene].marker}</span></div>
+          </div>
+
+          <div className="story-steps">
+            {scenes.map((scene, index) => (
+              <article className={activeScene === index ? 'story-step is-active' : 'story-step'} id={`scene-${index}`} key={scene.label}>
+                <div className="story-copy">
+                  <p className="scene-kicker"><span className="kicker-dot" />{scene.label}</p>
+                  <h1>{index === 0 ? <>I‚Äôm an AI developer<br />building systems that <em>feel human.</em></> : scene.title}</h1>
+                  <p className="story-lede">{scene.copy}</p>
+                  {index === 0 && (
+                    <div className="story-actions">
+                      <a className="button button-light" href="#work">Walk through the work <ArrowDown /></a>
+                      <a className="story-link" href="mailto:shishirpoudel7@gmail.com">Say hello <ArrowUpRight /></a>
+                    </div>
+                  )}
+                  {index > 0 && <span className="chapter-note">{scene.marker} <span aria-hidden="true">‚Üó</span></span>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="work" id="work" aria-labelledby="work-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow"><span className="eyebrow-dot" />THE WORK / FIVE CHAPTERS</p>
+              <h2 id="work-title">A few things<br /><em>I‚Äôve made real.</em></h2>
+            </div>
+            <p>Scroll-led scenes give the work a place to breathe. The details live here.</p>
+          </div>
+          <div className="project-grid">
+            {projects.map((project) => {
+              const Icon = project.icon;
+              return (
+                <article className="project-card" key={project.number}>
+                  <div className="project-image-wrap">
+                    <img src={project.image} alt={project.imageAlt} width="1448" height="1086" loading="lazy" />
+                    <span className="project-number">{project.number}</span>
+                  </div>
+                  <div className="project-copy">
+                    <div className="project-meta"><Icon /><span>{project.label}</span></div>
+                    <h3>{project.title}</h3>
+                    <p>{project.copy}</p>
                     <ul className="tag-list" aria-label="Technologies used">
                       {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
                     </ul>
