@@ -56,7 +56,7 @@ export default function App() {
     <a className="skip-link" href="#work">Skip to work</a>
     <header className="site-header">
       <a className="brand" href="#top" aria-label="Shishir Poudel, back to top" onClick={() => setMenuOpen(false)}>
-        <img src="/favicon.svg" alt="" width="38" height="38" /><span>SHISHIR<span className="brand-dot">.</span></span>
+        <img src="/favicon.svg?v=2" alt="" width="38" height="38" /><span>SHISHIR<span className="brand-dot">.</span></span>
       </a>
       <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation">
         <a href="#story" onClick={() => setMenuOpen(false)}>The story</a>
