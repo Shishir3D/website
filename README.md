@@ -1,20 +1,25 @@
-# Shishir Poudel — Scroll story portfolio
+# Shishir Poudel's portfolio
 
-Personal portfolio for [Shishir Poudel](https://www.shishir-poudel.com.np), an AI developer working across realtime voice AI, WebRTC, mobile applications and production infrastructure.
+A sketchbook-inspired portfolio about a curious frog climbing out of a well. The site pairs original hand-drawn films with a small Three.js well, and presents Shishir's AI engineering work and experience.
 
-The site is built as one bright, scroll-driven story: a friendly frog climbs from a mossy well toward a wider view, while four connected anime-influenced background scenes crossfade with the chapters.
-
-## Development
+## Develop
 
 ```bash
-npm install
+npm ci
 npm run dev
+npm run lint
+npm run build
 ```
 
-Run `npm run build` for a production build and `npm run lint` for static checks.
+Vite serves `src/` as the app root and `public/` as static assets. The built `dist/` directory is deployed to GitHub Pages by `.github/workflows/deploy-pages.yml`; generated output is never committed. `public/CNAME` retains the custom domain.
 
-## Visual direction
+## Content and assets
 
-- Original project and hero artwork generated with ChatGPT image generation, optimized to WebP, and stored in `public/story/`.
-- `public/story/distant-sky.jpg` is a downloaded Unsplash landscape texture used behind the about/contact chapters: [source image](https://images.unsplash.com/photo-1499346030926-9a72daac6c63).
-- Fonts load from Google Fonts: Manrope, Playfair Display and DM Mono.
+- `src/content.ts` holds the journey, selected work, GitHub projects and capabilities.
+- `src/App.tsx` holds the experience, credentials and contact copy.
+- `src/components/DoodleScene.tsx` renders the lightweight 3D well. Its SVG fallback and the page content work without WebGL. Motion respects the system reduced-motion preference.
+- `public/media/` contains short, silent MP4 loops and WebP stills. The editable animation source and storyboard are in `creative/visual/`. To render again, run `npm ci` in that directory and see `creative/visual/STORYBOARD.md`.
+- `public/resume/` contains the public, phone-free PDF. Regenerate it with `python3 scripts/build-resume.py` after installing ReportLab.
+- `public/fonts/` contains locally hosted Space Grotesk, IBM Plex Mono and Caveat with their OFL licenses.
+
+The original resume PDF is local reference material and is ignored by Git. Public personal details and project claims should be checked against Shishir's resume and [GitHub profile](https://github.com/Shishir3D).
