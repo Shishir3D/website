@@ -1,8 +1,10 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Download, Mail, Menu, RotateCw, X } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Download, Mail, Menu, X } from 'lucide-react';
 import { capabilities, chapters, projects, repositories } from './content';
 import LoopVideo from './components/LoopVideo';
 import RepoDoodle from './components/RepoDoodle';
+import PhotoArchive from './components/PhotoArchive';
+import SupportScene from './components/SupportScene';
 import './App.css';
 
 const DoodleScene = lazy(() => import('./components/DoodleScene'));
@@ -13,7 +15,6 @@ export default function App() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [orbit, setOrbit] = useState(0);
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -30,13 +31,6 @@ export default function App() {
       frame = requestAnimationFrame(() => {
         const rect = storyRef.current?.getBoundingClientRect();
         if (rect) setProgress(clamp(-rect.top / Math.max(1, rect.height - window.innerHeight)));
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
-          const bounds = el.getBoundingClientRect();
-          const distance = bounds.top + bounds.height / 2 - window.innerHeight / 2;
-          const speed = Number(el.dataset.parallax || 0.06);
-          el.style.setProperty('--drift', `${Math.max(-28, Math.min(28, -distance * speed))}px`);
-        });
       });
     };
     update();
@@ -61,6 +55,7 @@ export default function App() {
       <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation">
         <a href="#story" onClick={() => setMenuOpen(false)}>The story</a>
         <a href="#work" onClick={() => setMenuOpen(false)}>Selected work</a>
+        <a href="#field-notes" onClick={() => setMenuOpen(false)}>Field notes</a>
         <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
         <a href="#contact" onClick={() => setMenuOpen(false)} className="nav-contact">Say hello <ArrowUpRight size={16}/></a>
       </nav>
@@ -68,24 +63,26 @@ export default function App() {
     </header>
 
     <main>
-      <section className="hero section-shell" aria-labelledby="hero-title">
+      <section className="hero section-shell" data-sc-act="flow" aria-labelledby="hero-title">
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-line"/> SHISHIR POUDEL / AI ENGINEER / NEPAL</div>
           <h1 id="hero-title">A frog in a well<span className="hero-comma">,</span><br/><em>building a way out.</em></h1>
           <p className="hero-intro">I make voice AI, grounded retrieval systems and useful products. Every build is another rung toward a wider view.</p>
           <div className="hero-actions"><a className="button button-dark" href="#work">Explore my work <ArrowDownRight size={18}/></a><a className="text-link" href="#story">The story <ArrowRight size={17}/></a></div>
-          <p className="hand-note hero-note" data-parallax="0.04">still looking up ↗</p>
+          <p className="hand-note hero-note">still looking up ↗</p>
         </div>
-        <figure className="hero-art" data-parallax="0.035">
+        <div className="hero-orbit hero-orbit-back" data-sc-parallax="-0.07" aria-hidden="true" />
+        <figure className="hero-art" data-sc-tilt="3">
           <div className="paper-tape tape-one"/><div className="art-tag">FIG. 01 — THE CLIMB</div>
           <LoopVideo src="/media/ascent.mp4" poster="/media/ascent.webp" className="hero-film" reducedMotion={reducedMotion}/>
           <figcaption>A little frog climbs out of a sketched well toward the open sky.</figcaption>
           <span className="sketch-star star-one" aria-hidden="true">✳</span>
         </figure>
+        <div className="hero-orbit hero-orbit-front" data-sc-parallax="0.11" aria-hidden="true"><span>↗</span></div>
         <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span>PORTFOLIO / 2026</span></div>
       </section>
 
-      <section className="story" id="story" ref={storyRef} aria-labelledby="story-title">
+      <section className="story" id="story" ref={storyRef} data-sc-act="flow" aria-labelledby="story-title">
         <div className="section-shell story-grid">
           <div className="story-visual">
             <div className="story-sticky">
@@ -93,18 +90,14 @@ export default function App() {
               <h2 id="story-title">One step toward <span className="highlight-mark">more sky.</span></h2>
               <div className="scene-frame">
                 <div className="scene-coordinates">A LITTLE INK, A LITTLE MOTION</div>
-                <Suspense fallback={<div className="scene-placeholder" aria-hidden="true">◌</div>}><DoodleScene progress={progress} orbit={orbit} reducedMotion={reducedMotion}/></Suspense>
-                <button className="orbit-button" type="button" onClick={() => setOrbit(orbit + 1)} aria-label="Rotate the 3D well illustration"><RotateCw size={16}/> TURN THE WELL</button>
+                <Suspense fallback={<div className="scene-placeholder" aria-hidden="true">◌</div>}><DoodleScene progress={progress} reducedMotion={reducedMotion}/></Suspense>
+                <div className="scene-progress" aria-hidden="true"><span style={{ width: `${progress * 100}%` }}/></div>
               </div>
-              <div className="scene-film-strip" aria-hidden="true">
-                <div><LoopVideo src="/media/voice.mp4?v=2" poster="/media/voice.webp?v=2" reducedMotion={reducedMotion}/><span>VOICE IN MOTION</span></div>
-                <div><LoopVideo src="/media/mobile.mp4?v=2" poster="/media/mobile.webp?v=2" reducedMotion={reducedMotion}/><span>PRODUCT IN MOTION</span></div>
-              </div>
-              <p className="scene-caption">Turn the well, then watch the ideas take shape.</p>
+              <p className="scene-caption">The view changes as you move through the story.</p>
             </div>
           </div>
           <div className="story-chapters">
-            {chapters.map((chapter) => <article className="chapter" id={`chapter-${chapter.number}`} key={chapter.number}>
+            {chapters.map((chapter) => <article className="chapter" id={`chapter-${chapter.number}`} data-sc-in key={chapter.number}>
               <div className="chapter-meta"><span>{chapter.number} / 04</span><span>✳ {chapter.name}</span></div>
               <h3>{chapter.title}</h3><p>{chapter.copy}</p>
               <div className="chapter-rule"/>
@@ -113,10 +106,10 @@ export default function App() {
         </div>
       </section>
 
-      <section className="work section-shell" id="work" aria-labelledby="work-title">
+      <section className="work section-shell" id="work" data-sc-act="flow" aria-labelledby="work-title">
         <div className="section-heading"><div><p className="section-kicker">02 / SELECTED WORK</p><h2 id="work-title">Things I've <span className="highlight-mark">made real.</span></h2></div><p>From a sketch on paper to software people can actually use.</p></div>
-        <div className="project-list">{projects.map((project, index) => <article className={`project-card project-${project.id}`} key={project.id}>
-          <div className="project-media" data-parallax="0.025"><span className="project-index">{project.number} / 03</span><LoopVideo src={project.video} poster={project.poster} className="project-film" reducedMotion={reducedMotion}/><span className="media-corner">↗</span></div>
+        <div className="project-list">{projects.map((project, index) => <article className={`project-card project-${project.id}`} data-sc-in key={project.id}>
+          <div className="project-media"><span className="project-index">{project.number} / 03</span>{project.id === 'support' ? <SupportScene reducedMotion={reducedMotion}/> : <LoopVideo src={project.video} poster={project.poster} className="project-film" reducedMotion={reducedMotion}/>}<span className="media-corner" data-sc-parallax="-0.04">↗</span></div>
           <div className="project-copy"><p className="section-kicker">{project.label}</p><h3>{project.title}</h3><p>{project.description}</p><ul className="tag-list" aria-label={`${project.title} technologies`}>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul><div className="project-fact"><span className="fact-spark">✳</span> {project.fact}</div>{index === 0 && <span className="hand-note project-note">the conversation keeps going →</span>}</div>
         </article>)}</div>
       </section>
@@ -126,9 +119,11 @@ export default function App() {
         <div className="repo-grid">{repositories.map((repo) => <a className="repo-card" key={repo.id} href={repo.href} target="_blank" rel="noreferrer" aria-label={`${repo.title} on GitHub, opens in a new tab`}><div className="repo-card-top"><span>NO. {repo.number}</span><ArrowUpRight size={20}/></div><div className="repo-image"><RepoDoodle kind={repo.id}/></div><div className="repo-body"><h3>{repo.title}</h3><p>{repo.description}</p><span className="repo-tags">{repo.tags.join(' / ')}</span></div></a>)}</div>
       </div></section>
 
+      <PhotoArchive />
+
       <section className="about section-shell" id="about" aria-labelledby="about-title"><div className="about-main">
-        <div className="about-photo-wrap" data-parallax="0.03"><img className="about-photo" src="/profile.jpeg" alt="Portrait of Shishir Poudel" loading="lazy"/><span className="photo-label">ME, OUTSIDE THE WELL ↗</span><span className="hand-note photo-note">hi, I'm Shishir!</span></div>
-        <div className="about-copy"><p className="section-kicker">04 / THE HUMAN BEHIND THE BUILDS</p><h2 id="about-title">A builder with <span className="highlight-mark">room to grow.</span></h2><p>I'm Shishir Poudel, an AI engineer in Nepal. I care about what happens after the prototype: whether a conversation feels natural, an answer can be traced to its source, or a product makes sense on a real person's phone.</p><p>My work crosses models, APIs, data, mobile interfaces and deployment. I keep learning because the horizon keeps moving.</p><a className="button button-outline" href="/resume/Shishir-Poudel-Resume.pdf?v=2" download="Shishir-Poudel-Resume.pdf">Download résumé <Download size={17}/></a></div>
+        <div className="about-photo-wrap"><img className="about-photo" src="/profile.jpeg" alt="Shishir Poudel at an AWS community event" loading="lazy"/><span className="photo-label">ME, OUTSIDE THE WELL ↗</span><span className="hand-note photo-note">hi, I'm Shishir!</span></div>
+        <div className="about-copy"><p className="section-kicker">05 / THE HUMAN BEHIND THE BUILDS</p><h2 id="about-title">A builder with <span className="highlight-mark">room to grow.</span></h2><p>I'm Shishir Poudel, an AI engineer in Nepal. I care about what happens after the prototype: whether a conversation feels natural, an answer can be traced to its source, or a product makes sense on a real person's phone.</p><p>My work crosses models, APIs, data, mobile interfaces and deployment. I keep learning because the horizon keeps moving.</p><a className="button button-outline" href="/resume/Shishir-Poudel-Resume.pdf?v=2" download="Shishir-Poudel-Resume.pdf">Download résumé <Download size={17}/></a></div>
       </div>
       <div className="experience"><div className="mini-heading"><p className="section-kicker">EXPERIENCE / NOTES FROM THE CLIMB</p><span>2025 → NOW</span></div><div className="experience-grid">
         <article className="experience-card"><span className="experience-date">NOV 2025 — PRESENT · FULL-TIME</span><h3>AI Developer <span>@ Next AI Pvt. Ltd</span></h3><p>Own a voice-to-voice AI system for 1,000+ concurrent users in an app with 500k+ downloads. Build speech processing, FastAPI workflows, orchestration and scalable deployment. Fine-tuned Gemma 3 for customer support and Piper TTS; deployed Omni Voice and Qwen3 TTS. Prompt-engineered 48 English-learning characters and built a customer-support agent using RAG and a locally deployed LLM. I am also exploring local Nepali STT, LLM and TTS components.</p></article>
@@ -138,7 +133,7 @@ export default function App() {
       <div className="credentials"><p className="section-kicker">SMALL WINS ALONG THE WAY</p><p>NASA Space Apps Challenge 2023 — Honorable Mention <span>✳</span> Hackathon winner <span>✳</span> AWS Certified Cloud Practitioner <span>✳</span> AWS Machine Learning Fundamentals</p><p className="degree">BSc (Hons) Computing with Artificial Intelligence · 2023–2026</p></div>
       </section>
 
-      <section className="contact" id="contact" aria-labelledby="contact-title"><div className="section-shell contact-inner"><p className="section-kicker">05 / THE HORIZON IS OPEN</p><h2 id="contact-title">Have a good <span>question?</span></h2><p>Let's make something thoughtful, useful and a little unexpected.</p><a className="contact-mail" href="mailto:shishirpoudel.dev@gmail.com">shishirpoudel.dev@gmail.com <ArrowUpRight size={24}/></a><div className="contact-links"><a href="https://github.com/Shishir3D" target="_blank" rel="noreferrer"><ArrowUpRight size={18}/> GitHub</a><a href="https://www.linkedin.com/in/shishir3d/" target="_blank" rel="noreferrer"><ArrowUpRight size={18}/> LinkedIn</a><a href="mailto:shishirpoudel.dev@gmail.com"><Mail size={18}/> Email</a></div><div className="contact-doodle" aria-hidden="true">↗</div></div></section>
+      <section className="contact" id="contact" aria-labelledby="contact-title"><div className="section-shell contact-inner"><p className="section-kicker">06 / THE HORIZON IS OPEN</p><h2 id="contact-title">Have a good <span>question?</span></h2><p>Let's make something thoughtful, useful and a little unexpected.</p><a className="contact-mail" href="mailto:shishirpoudel.dev@gmail.com">shishirpoudel.dev@gmail.com <ArrowUpRight size={24}/></a><div className="contact-links"><a href="https://github.com/Shishir3D" target="_blank" rel="noreferrer"><ArrowUpRight size={18}/> GitHub</a><a href="https://www.linkedin.com/in/shishir3d/" target="_blank" rel="noreferrer"><ArrowUpRight size={18}/> LinkedIn</a><a href="mailto:shishirpoudel.dev@gmail.com"><Mail size={18}/> Email</a></div><div className="contact-doodle" aria-hidden="true">↗</div></div></section>
     </main>
     <footer className="site-footer section-shell"><span>© {new Date().getFullYear()} SHISHIR POUDEL</span><span>DRAWN WITH CURIOSITY · BUILT WITH CODE</span><a href="#top">BACK TO TOP ↑</a></footer>
   </div>;
