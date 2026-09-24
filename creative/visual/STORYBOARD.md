@@ -6,7 +6,7 @@
 
 ## Idea
 
-A tiny frog-like stick figure starts at the bottom of a drawn well, climbs a sketch ladder, and hops into an open landscape. The same pen line then connects three kinds of work: voice, grounded legal search, and a mobile product. It should read without sound or text, as a playful notebook animation beside the portfolio copy.
+A tiny frog-like stick figure starts at the bottom of a drawn well, climbs a sketch ladder, and hops into an open landscape. The same pen line then connects three kinds of work: voice, a local customer-support agent, and a mobile product. It should read without sound or text, as a playful notebook animation beside the portfolio copy.
 
 ## Cast
 
@@ -29,16 +29,16 @@ Palette: ivory paper, ink, lime, occasional cobalt.
 | 2-4s | A sketched ladder appears and the frog climbs it. | Frog springs past the rim. |
 | 4-6s | Open horizon unfolds; frog hops toward it. | Ink line sweeps across to the work reel. |
 
-## Chapter 2: the work (6-12s)
+## Chapter 2: the work (6-16s)
 
 Palette: same paper and ink, with cobalt for voice, coral for documents, lime for product.
 
 | Time | Shot | Transition |
 | --- | --- | --- |
-| 6-8s | Voice waveform moves from microphone through three bubbles to speaker. | Wave line folds into a book spine. |
-| 8-10s | Pages connect to a magnifying glass and a grounded check mark. | Search circle becomes a phone outline. |
-| 10-12s | Mobile dashboard cards settle into place; frog gestures at the finished system. | End on a clean frame suitable for looping. |
+| 6-9s | Voice waveform moves from microphone through speech stages to speaker. | The wave carries a question into the agent. |
+| 9-12s | A customer asks a question; moving dots reach a local model server and a response appears. | Answer card unfolds into a phone outline. |
+| 12-16s | Mobile dashboard cards arrive in sequence, charts rise, and a tap ripples across the interface. | Hold the finished product for a beat. |
 
 ## Output
 
-Full film: 12 seconds, 16:9, silent MP4. Derived clips: 0-6s for hero; 6-8s voice; 8-10s legal RAG; 10-12s mobile. Export stills as fallbacks.
+Full film: 16 seconds, 16:9, silent MP4. Derived clips: 0-6s for hero; 6-9s voice; 9-12s local support agent; 12-16s mobile. Export stills as fallbacks.

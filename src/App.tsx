@@ -90,13 +90,17 @@ export default function App() {
           <div className="story-visual">
             <div className="story-sticky">
               <div className="section-kicker">01 / THE JOURNEY</div>
-              <h2 id="story-title">One curious <span className="highlight-mark">leap</span> at a time.</h2>
+              <h2 id="story-title">One step toward <span className="highlight-mark">more sky.</span></h2>
               <div className="scene-frame">
-                <div className="scene-coordinates">DRAG YOUR EYES, TURN THE PAGE</div>
+                <div className="scene-coordinates">A LITTLE INK, A LITTLE MOTION</div>
                 <Suspense fallback={<div className="scene-placeholder" aria-hidden="true">◌</div>}><DoodleScene progress={progress} orbit={orbit} reducedMotion={reducedMotion}/></Suspense>
                 <button className="orbit-button" type="button" onClick={() => setOrbit(orbit + 1)} aria-label="Rotate the 3D well illustration"><RotateCw size={16}/> TURN THE WELL</button>
               </div>
-              <p className="scene-caption">A small 3D sketch of the well. The frog is already on the move.</p>
+              <div className="scene-film-strip" aria-hidden="true">
+                <div><LoopVideo src="/media/voice.mp4?v=2" poster="/media/voice.webp?v=2" reducedMotion={reducedMotion}/><span>VOICE IN MOTION</span></div>
+                <div><LoopVideo src="/media/mobile.mp4?v=2" poster="/media/mobile.webp?v=2" reducedMotion={reducedMotion}/><span>PRODUCT IN MOTION</span></div>
+              </div>
+              <p className="scene-caption">Turn the well, then watch the ideas take shape.</p>
             </div>
           </div>
           <div className="story-chapters">
@@ -124,10 +128,10 @@ export default function App() {
 
       <section className="about section-shell" id="about" aria-labelledby="about-title"><div className="about-main">
         <div className="about-photo-wrap" data-parallax="0.03"><img className="about-photo" src="/profile.jpeg" alt="Portrait of Shishir Poudel" loading="lazy"/><span className="photo-label">ME, OUTSIDE THE WELL ↗</span><span className="hand-note photo-note">hi, I'm Shishir!</span></div>
-        <div className="about-copy"><p className="section-kicker">04 / THE HUMAN BEHIND THE BUILDS</p><h2 id="about-title">A builder with <span className="highlight-mark">room to grow.</span></h2><p>I'm Shishir Poudel, an AI engineer in Nepal. I care about what happens after the prototype: whether a conversation feels natural, an answer can be traced to its source, or a product makes sense on a real person's phone.</p><p>My work crosses models, APIs, data, mobile interfaces and deployment. I keep learning because the horizon keeps moving.</p><a className="button button-outline" href="/resume/Shishir-Poudel-Resume.pdf" download>Download résumé <Download size={17}/></a></div>
+        <div className="about-copy"><p className="section-kicker">04 / THE HUMAN BEHIND THE BUILDS</p><h2 id="about-title">A builder with <span className="highlight-mark">room to grow.</span></h2><p>I'm Shishir Poudel, an AI engineer in Nepal. I care about what happens after the prototype: whether a conversation feels natural, an answer can be traced to its source, or a product makes sense on a real person's phone.</p><p>My work crosses models, APIs, data, mobile interfaces and deployment. I keep learning because the horizon keeps moving.</p><a className="button button-outline" href="/resume/Shishir-Poudel-Resume.pdf?v=2" download="Shishir-Poudel-Resume.pdf">Download résumé <Download size={17}/></a></div>
       </div>
       <div className="experience"><div className="mini-heading"><p className="section-kicker">EXPERIENCE / NOTES FROM THE CLIMB</p><span>2025 → NOW</span></div><div className="experience-grid">
-        <article className="experience-card"><span className="experience-date">NOV 2025 — PRESENT · FULL-TIME</span><h3>AI Developer <span>@ Next AI Pvt. Ltd</span></h3><p>Own a voice-to-voice AI system for 1,000+ concurrent users in an app with 500k+ downloads. Build speech processing, FastAPI workflows, orchestration and scalable deployment. Fine-tuned Gemma 3 for customer support and Piper TTS; deployed Omni Voice and Qwen3 TTS. Prompt-engineered 48 English-learning characters and built a legal RAG system for Nepal's Constitution, Acts and Najirs.</p></article>
+        <article className="experience-card"><span className="experience-date">NOV 2025 — PRESENT · FULL-TIME</span><h3>AI Developer <span>@ Next AI Pvt. Ltd</span></h3><p>Own a voice-to-voice AI system for 1,000+ concurrent users in an app with 500k+ downloads. Build speech processing, FastAPI workflows, orchestration and scalable deployment. Fine-tuned Gemma 3 for customer support and Piper TTS; deployed Omni Voice and Qwen3 TTS. Prompt-engineered 48 English-learning characters and built a customer-support agent using RAG and a locally deployed LLM. I am also exploring local Nepali STT, LLM and TTS components.</p></article>
         <article className="experience-card"><span className="experience-date">JUN 2025 — PRESENT · CONTRACT</span><h3>Full-Stack Developer <span>@ Simal</span></h3><p>Built an end-to-end, multi-tenant SaaS mobile app with React Native, Supabase and PostgreSQL, including a generative UI reporting dashboard.</p></article>
       </div></div>
       <div className="skills-wrap"><p className="section-kicker">TOOLS IN THE BACKPACK</p><div className="skill-grid">{capabilities.map(([label, value]) => <div className="skill-row" key={label}><h3>{label}</h3><p>{value}</p></div>)}</div></div>

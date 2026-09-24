@@ -1,41 +1,29 @@
 export const chapters = [
-  {
-    number: '01', name: 'THE WELL', title: 'Start with a question.',
-    copy: 'I learned to code because I wanted to change the rules of a game. The trick never worked. The curiosity did.',
-  },
-  {
-    number: '02', name: 'THE RIM', title: 'Make the leap real.',
-    copy: 'A demo is the beginning. I work on the latency, reliability and deployment that let an AI system hold up in a real conversation.',
-  },
-  {
-    number: '03', name: 'THE VALLEY', title: 'Connect the pieces.',
-    copy: 'Models, APIs, data and interfaces need to work together. I like building the paths between them.',
-  },
-  {
-    number: '04', name: 'THE HORIZON', title: 'Keep looking up.',
-    copy: 'The next questions are about useful, private and multilingual AI, especially for Nepali language and people.',
-  },
+  { number: '01', name: 'THE WELL', title: 'Stay curious.', copy: 'A small view made me ask bigger questions.' },
+  { number: '02', name: 'THE RIM', title: 'Build beyond demos.', copy: 'Latency and reliability turn experiments into products.' },
+  { number: '03', name: 'THE VALLEY', title: 'Connect the pieces.', copy: 'Models, APIs, data and interfaces work best together.' },
+  { number: '04', name: 'THE HORIZON', title: 'Keep looking up.', copy: 'I’m exploring local voice AI for Nepali.' },
 ] as const;
 
 export const projects = [
   {
     id: 'voice', number: '01', label: 'REAL-TIME VOICE AI', title: 'When a conversation cannot wait.',
-    description: 'I owned a voice-to-voice AI system supporting 1,000+ concurrent users, integrated into an app with 500k+ downloads. My work covered speech, orchestration, APIs, inference and deployment.',
-    video: '/media/voice.mp4', poster: '/media/voice.webp',
+    description: 'I owned a voice-to-voice AI system supporting 1,000+ concurrent users, integrated into an app with 500k+ downloads. My work covered speech, orchestration, APIs, inference and deployment. I also explore local Nepali STT, LLM and TTS components.',
+    video: '/media/voice.mp4?v=2', poster: '/media/voice.webp?v=2',
     tags: ['WebRTC', 'LiveKit', 'FastAPI', 'TTS', 'AWS'],
     fact: '1,000+ concurrent users',
   },
   {
-    id: 'legal', number: '02', label: 'GROUNDED AI / RAG', title: 'Answers that know where they came from.',
-    description: 'I built a legal AI retrieval system for Nepal’s Constitution, Acts and Najirs. It retrieves, reranks and grounds generated answers in relevant source material.',
-    video: '/media/legal.mp4', poster: '/media/legal.webp',
-    tags: ['RAG', 'Reranking', 'Python', 'LLMs'],
-    fact: 'Source-grounded answers',
+    id: 'support', number: '02', label: 'LOCAL AI / CUSTOMER SUPPORT', title: 'A support bot that runs locally.',
+    description: 'I built a customer-support agent using retrieval and a locally deployed LLM. It uses relevant knowledge to answer questions while keeping inference on local infrastructure.',
+    video: '/media/support.mp4', poster: '/media/support.webp',
+    tags: ['Local LLM', 'RAG', 'Python', 'Agent'],
+    fact: 'Local model inference',
   },
   {
     id: 'mobile', number: '03', label: 'MOBILE / SAAS', title: 'A product that travels with its users.',
     description: 'At Simal I built an end-to-end, multi-tenant SaaS mobile app in React Native with Supabase and PostgreSQL, including a generative UI dashboard for reporting.',
-    video: '/media/mobile.mp4', poster: '/media/mobile.webp',
+    video: '/media/mobile.mp4?v=2', poster: '/media/mobile.webp?v=2',
     tags: ['React Native', 'Supabase', 'PostgreSQL'],
     fact: 'Multi-tenant mobile product',
   },
