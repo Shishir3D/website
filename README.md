@@ -1,6 +1,6 @@
 # Shishir Poudel's portfolio
 
-A sketchbook-inspired portfolio about a curious frog climbing out of a well. The site pairs original hand-drawn films with a small Three.js well, and presents Shishir's AI engineering work and experience.
+A sketchbook-inspired portfolio about a curious frog climbing out of a well. The site pairs original hand-drawn films, a scroll-driven Three.js scene and a photo archive with Shishir's AI engineering work and experience.
 
 ## Develop
 
@@ -23,3 +23,9 @@ Vite serves `src/` as the app root and `public/` as static assets. The built `di
 - `public/fonts/` contains locally hosted Space Grotesk, IBM Plex Mono and Caveat with their OFL licenses.
 
 The original resume PDF is local reference material and is ignored by Git. Public personal details and project claims should be checked against Shishir's resume and [GitHub profile](https://github.com/Shishir3D).
+
+## Field notes and scroll motion
+
+The scroll-linked page stages use the reviewed [scroll-craft](https://github.com/nateherkai/scroll-craft) runtime in `src/vendor/` (MIT license included). The creative brief is `creative/scrollcraft/BRIEF.md`. Its external asset service is not used.
+
+Add real photos to `src/assets/photos/` and rebuild; the gallery imports supported image files automatically. Three starter event scenes were generated with ChatGPT Image and are labeled as illustrative placeholders on the page. See `src/assets/photos/README.md` before replacing them. The existing portrait is an authentic photo. Keep event captions factual.
