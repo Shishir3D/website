@@ -52,7 +52,7 @@ item('AI Developer  /  Next AI Pvt. Ltd','Nov 2025 - Present',[
 'Own a real-time voice-to-voice AI system supporting 1,000+ concurrent users, integrated into an app with 500k+ downloads.',
 'Build speech processing, FastAPI integrations, orchestration and scalable deployment workflows.',
 'Fine-tuned Gemma 3 for customer support and Piper TTS; deployed Omni Voice and Qwen3 TTS inference.',
-'Prompt-engineered 48 English-learning AI characters and built a legal RAG system for Nepal’s Constitution, Acts and Najirs with retrieval, reranking and grounded answers.'
+'Prompt-engineered 48 English-learning AI characters. Built a customer-support agent with RAG and local LLM inference; exploring local Nepali STT, LLM and TTS components.'
 ])
 item('Full-Stack Developer  /  Simal','Jun 2025 - Present',[
 'Built an end-to-end multi-tenant SaaS mobile app with React Native, Supabase and PostgreSQL; added a generative UI dashboard for reporting.'
