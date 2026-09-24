@@ -37,3 +37,8 @@
 - Review the PR diff and checks, then merge it to `main` and verify deployment. The repository owner has explicitly authorized agents to push, open and merge PRs, and push to `main` without a separate approval request.
 - Keep generated Vite output out of Git. GitHub Pages deploys the `dist/` artifact through `.github/workflows/deploy-pages.yml`.
 - Prefer reversible changes and ordinary merges; do not force push or rewrite shared history.
+
+## Photo archive
+
+- Add authentic event photos to `src/assets/photos/` with descriptive filenames. The gallery imports them at build time. Keep AI-generated placeholder scenes visibly labeled until replaced.
+- When changing scroll-driven visuals, verify the initial, middle and final story positions at desktop and narrow phone widths, including the SVG fallback and reduced-motion mode.
