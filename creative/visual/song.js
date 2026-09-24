@@ -1,5 +1,5 @@
 const SONG = {
-  dur: 12,
+  dur: 16,
   bpm: 120,
   offset: 0,
   audio: null,
